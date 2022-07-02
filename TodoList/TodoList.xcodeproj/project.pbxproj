@@ -16,7 +16,6 @@
 		3F9EB6AD286ED35300AC985F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F9EB6AC286ED35300AC985F /* Assets.xcassets */; };
 		3F9EB6B0286ED35300AC985F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9EB6AE286ED35300AC985F /* LaunchScreen.storyboard */; };
 		3F9EB6B8286ED42C00AC985F /* dms_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9EB6B7286ED42C00AC985F /* dms_logo.png */; };
-		3F9EB6BD286EDCCD00AC985F /* 스크린샷 2022-07-01 오후 4.41.09.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9EB6BC286EDCCD00AC985F /* 스크린샷 2022-07-01 오후 4.41.09.png */; };
 		3F9EB6C32870401400AC985F /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EB6C22870401400AC985F /* SignUpVC.swift */; };
 		3F9EB6C52870402900AC985F /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EB6C42870402900AC985F /* LogInVC.swift */; };
 /* End PBXBuildFile section */
@@ -32,7 +31,6 @@
 		3F9EB6AF286ED35300AC985F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F9EB6B1286ED35300AC985F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F9EB6B7286ED42C00AC985F /* dms_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dms_logo.png; sourceTree = "<group>"; };
-		3F9EB6BC286EDCCD00AC985F /* 스크린샷 2022-07-01 오후 4.41.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "스크린샷 2022-07-01 오후 4.41.09.png"; sourceTree = "<group>"; };
 		3F9EB6C22870401400AC985F /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		3F9EB6C42870402900AC985F /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		77A90B1E7CCA0018CF26A8A2 /* Pods_TodoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +95,6 @@
 				3F9EB6A6286ED35100AC985F /* Main.storyboard */,
 				3F9EB6AC286ED35300AC985F /* Assets.xcassets */,
 				3F9EB6AE286ED35300AC985F /* LaunchScreen.storyboard */,
-				3F9EB6BC286EDCCD00AC985F /* 스크린샷 2022-07-01 오후 4.41.09.png */,
 				3F9EB6B1286ED35300AC985F /* Info.plist */,
 				3F9EB6B7286ED42C00AC985F /* dms_logo.png */,
 				3F9EB6A9286ED35100AC985F /* TodoList.xcdatamodeld */,
@@ -133,6 +130,7 @@
 				3F9EB699286ED35100AC985F /* Sources */,
 				3F9EB69A286ED35100AC985F /* Frameworks */,
 				3F9EB69B286ED35100AC985F /* Resources */,
+				B14DD714BD31F6196EFA1C3A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -182,7 +180,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F9EB6B0286ED35300AC985F /* LaunchScreen.storyboard in Resources */,
-				3F9EB6BD286EDCCD00AC985F /* 스크린샷 2022-07-01 오후 4.41.09.png in Resources */,
 				3F9EB6AD286ED35300AC985F /* Assets.xcassets in Resources */,
 				3F9EB6A8286ED35100AC985F /* Main.storyboard in Resources */,
 				3F9EB6B8286ED42C00AC985F /* dms_logo.png in Resources */,
@@ -192,6 +189,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B14DD714BD31F6196EFA1C3A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TodoList/Pods-TodoList-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TodoList/Pods-TodoList-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TodoList/Pods-TodoList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D4A24EE4706B6CE58A4162E1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
