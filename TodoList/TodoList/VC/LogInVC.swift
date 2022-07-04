@@ -9,7 +9,9 @@ import UIKit
 
 
 class LogInVC: UIViewController {
-
+    @IBOutlet weak var textFieldUserID: UITextField!
+    @IBOutlet weak var textFieldUserPW: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
