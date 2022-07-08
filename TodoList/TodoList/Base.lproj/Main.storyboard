@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3405.7971014492755" y="-704.46428571428567"/>
+            <point key="canvasLocation" x="3400" y="-704"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="y1M-jp-r7u">
@@ -143,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6hs-NB-MXY">
-                                <rect key="frame" x="30" y="114" width="354" height="669"/>
+                                <rect key="frame" x="30" y="158" width="354" height="625"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -161,21 +161,40 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="마이페이지" image="person.fill" catalog="system" id="Rcz-gC-AWC"/>
+                    <navigationItem key="navigationItem" id="DCQ-Z6-RXm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3QX-Fg-7Jr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="626"/>
+            <point key="canvasLocation" x="3400" y="664"/>
+        </scene>
+        <!--새 할 일-->
+        <scene sceneID="ikU-Gs-cPM">
+            <objects>
+                <navigationController id="TOt-Af-rha" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="새 할 일" image="pencil" catalog="system" id="sqr-0o-kMV"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bZ9-N2-lc4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JkM-Aw-ONl" kind="relationship" relationship="rootViewController" id="1L4-tA-cMz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mOY-bf-wY1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2628" y="-27"/>
         </scene>
         <!--NewPostVC-->
         <scene sceneID="Oam-Zc-fq3">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgo-kK-vJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="NewPostVC" title="NewPostVC" modalPresentationStyle="fullScreen" id="JkM-Aw-ONl" customClass="NewPostVC" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qeU-0y-VzK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ztz-8S-eZ2">
-                                <rect key="frame" x="35" y="194" width="344" height="519"/>
+                                <rect key="frame" x="35" y="238" width="344" height="475"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -183,12 +202,12 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rut-JQ-qnW">
-                                <rect key="frame" x="35" y="154" width="344" height="34"/>
+                                <rect key="frame" x="35" y="198" width="344" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새 할 일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMw-dG-vtf">
-                                <rect key="frame" x="35" y="99" width="91" height="36"/>
+                                <rect key="frame" x="35" y="143" width="91" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -209,10 +228,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="새 할 일" image="pencil" catalog="system" id="jcm-8m-REi"/>
+                    <navigationItem key="navigationItem" id="gMN-8c-crT"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wgo-kK-vJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="-42"/>
+            <point key="canvasLocation" x="3400" y="-27"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="qAN-cX-njV">
@@ -247,13 +266,18 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waB-eN-AxU">
                                 <rect key="frame" x="60" y="379" width="294" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1XY-il-Lvv"/>
                                 </constraints>
                                 <color key="tintColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="로그인">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.31764705882352939" green="0.65490196078431373" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                    <color key="baseBackgroundColor" red="0.31764705882352939" green="0.65490196078431373" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnLogIn:" destination="Qam-hq-foY" eventType="touchUpInside" id="s40-FK-Upb"/>
@@ -387,7 +411,11 @@
                                 <color key="tintColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="회원 가입">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                    <color key="baseBackgroundColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnNewUser:" destination="P1i-4z-cbd" eventType="touchUpInside" id="7cS-U5-saX"/>
@@ -457,11 +485,17 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.31764705882352939" green="0.65490196078431373" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <tabBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tabBarAppearance>
+                        <tabBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tabBarAppearance>
                     </tabBar>
                     <connections>
                         <segue destination="mCm-0V-hrp" kind="relationship" relationship="viewControllers" id="tqy-oQ-vPD"/>
-                        <segue destination="JkM-Aw-ONl" kind="relationship" relationship="viewControllers" id="oEH-el-Nmd"/>
-                        <segue destination="SFj-mA-gN7" kind="relationship" relationship="viewControllers" id="rk4-jW-sqV"/>
+                        <segue destination="TOt-Af-rha" kind="relationship" relationship="viewControllers" id="FU3-tN-EnR"/>
+                        <segue destination="jfY-kr-pZg" kind="relationship" relationship="viewControllers" id="qRh-IQ-wKZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1M-pk-w5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -485,7 +519,16 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                         </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </navigationBarAppearance>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WX0-eL-qbA">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Tgq-ox-0gS"/>
                     </connections>
@@ -493,6 +536,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wE3-zS-TPU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2628" y="-704"/>
+        </scene>
+        <!--마이페이지-->
+        <scene sceneID="lgk-oG-SZB">
+            <objects>
+                <navigationController id="jfY-kr-pZg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="person.fill" catalog="system" id="oSw-jc-77V"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Faw-tQ-jTN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SFj-mA-gN7" kind="relationship" relationship="rootViewController" id="4DZ-3N-VDX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T27-jt-mCe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2628" y="664"/>
         </scene>
     </scenes>
     <resources>
