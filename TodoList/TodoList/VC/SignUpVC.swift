@@ -32,7 +32,7 @@ class SignUpVC: UIViewController {
         // POST 로 보낼 정보
         let params: Parameters = [
             "userId" : txtFieldUserID.text!,
-            "userAge" : Int(txtFieldAge.text!)  ?? 0,
+            "userAge" : Int(txtFieldAge.text!)  ?? 1,
             "userName" : txtFieldName.text!,
             "userPw" : txtFieldPW.text!
         ] as Dictionary
