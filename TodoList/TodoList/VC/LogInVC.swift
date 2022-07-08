@@ -46,7 +46,7 @@ class LogInVC: UIViewController {
         AF.request(request).response { (response) in
             switch response.result {
             case .success:
-
+                debugPrint(response)
 //                if let data = try? JSONDecoder().decode(TokenModel.self, from: response.data!) {
 //                    KeyChain.create(key: "accessToken", token: data.accessToken)
 //                    KeyChain.create(key: "refreshToken", token: data.refreshToken)

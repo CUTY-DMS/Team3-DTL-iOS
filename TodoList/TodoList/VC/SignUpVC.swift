@@ -32,11 +32,13 @@ class SignUpVC: UIViewController {
         // POST 로 보낼 정보
         let params: Parameters = [
             "userId" : txtFieldUserID.text!,
-            "userAge" : Int(txtFieldAge.text!)  ?? 1,
+            "userAge" : Int(txtFieldAge.text!)  ?? 0,
             "userName" : txtFieldName.text!,
             "userPw" : txtFieldPW.text!
         ] as Dictionary
 
+    
+        
         // httpBody 에 parameters 추가
         do {
             try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
@@ -50,7 +52,7 @@ class SignUpVC: UIViewController {
             print(response.request ?? "")
             switch response.result {
             case .success:
-                
+                debugPrint(response)
                 let successOnAlert = UIAlertController(title: "안내", message: "회원가입 성공!", preferredStyle: UIAlertController.Style.alert)
                 let onAction = UIAlertAction(title: "로그인 페이지로 돌아가기", style: UIAlertAction.Style.default, handler: nil)
                 

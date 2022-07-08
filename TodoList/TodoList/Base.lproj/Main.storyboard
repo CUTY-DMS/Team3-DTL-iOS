@@ -187,7 +187,6 @@
         <!--NewPostVC-->
         <scene sceneID="Oam-Zc-fq3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wgo-kK-vJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="NewPostVC" title="NewPostVC" modalPresentationStyle="fullScreen" id="JkM-Aw-ONl" customClass="NewPostVC" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qeU-0y-VzK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -230,6 +229,7 @@
                     <tabBarItem key="tabBarItem" title="새 할 일" image="pencil" catalog="system" id="jcm-8m-REi"/>
                     <navigationItem key="navigationItem" id="gMN-8c-crT"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgo-kK-vJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3400" y="-27"/>
         </scene>
@@ -464,7 +464,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wk5-ol-wSq"/>
                     <connections>
-                        <outlet property="txtFieldAge" destination="Qco-yh-Mh4" id="o6R-5O-UkT"/>
+                        <outlet property="txtFieldAge" destination="MKn-wJ-71j" id="JPf-Nq-9Of"/>
                         <outlet property="txtFieldName" destination="oUR-gy-k7s" id="2zU-HY-ouS"/>
                         <outlet property="txtFieldPW" destination="RQ4-tk-Jt4" id="3r6-a9-7KM"/>
                         <outlet property="txtFieldUserID" destination="Qco-yh-Mh4" id="NBV-tk-KuV"/>
