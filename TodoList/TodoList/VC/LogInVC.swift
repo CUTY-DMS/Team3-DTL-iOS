@@ -23,14 +23,15 @@ class LogInVC: UIViewController {
     }
     
     private func signin() {
-        let url = "http://10.156.147.206:808/users/signin"
+        let url = "http://10.156.147.206:8080/users/signin"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 10
         
         // POST 로 보낼 정보
         let params: Parameters = [
-            "userID": "\(txtFieldUserID.text!)",
+            "userId": "\(txtFieldUserID.text!)",
             "userPw": "\(txtFieldPW.text!)"
         ]
 
@@ -46,10 +47,10 @@ class LogInVC: UIViewController {
             switch response.result {
             case .success:
 
-                if let data = try? JSONDecoder().decode(TokenModel.self, from: response.data!) {
-                    KeyChain.create(key: "accessToken", token: data.accessToken)
-                    KeyChain.create(key: "refreshToken", token: data.refreshToken)
-                }
+//                if let data = try? JSONDecoder().decode(TokenModel.self, from: response.data!) {
+//                    KeyChain.create(key: "accessToken", token: data.accessToken)
+//                    KeyChain.create(key: "refreshToken", token: data.refreshToken)
+//                }
                 
                 guard let logInVC = self.storyboard?.instantiateViewController(identifier: "TabBarVC") as? TabBarVC else { return }
                 

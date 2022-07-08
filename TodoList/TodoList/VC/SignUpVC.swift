@@ -27,14 +27,15 @@ class SignUpVC: UIViewController {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 10
 
         // POST 로 보낼 정보
         let params: Parameters = [
             "userId" : txtFieldUserID.text!,
-            "userAge" : Int(txtFieldAge.text!) ?? 0,
+            "userAge" : Int(txtFieldAge.text!)  ?? 0,
             "userName" : txtFieldName.text!,
             "userPw" : txtFieldPW.text!
-        ]
+        ] as Dictionary
 
         // httpBody 에 parameters 추가
         do {
