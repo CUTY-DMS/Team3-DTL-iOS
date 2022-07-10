@@ -23,7 +23,7 @@ class LogInVC: UIViewController {
     }
     
     private func signin() {
-        let url = "http://10.156.147.206:8080/users/signin"
+        let url = "http://10.156.147.206:9090/users/signin"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -53,6 +53,8 @@ class LogInVC: UIViewController {
 //                }
                 
                 guard let logInVC = self.storyboard?.instantiateViewController(identifier: "TabBarVC") as? TabBarVC else { return }
+                
+
                 
                 logInVC.modalPresentationStyle = .fullScreen
                 self.present(logInVC, animated: true, completion: nil)
