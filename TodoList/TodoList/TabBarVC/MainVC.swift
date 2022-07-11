@@ -33,7 +33,7 @@ class MainVC: UIViewController {
     
     
     private func getUsers() {
-        AF.request("http://10.156.147.206:9090/board/all", method: .get)
+        AF.request("http://35.216.6.254:8080/board/all", method: .get)
             .validate(statusCode: 200..<500)
             .responseData {
                 response in switch response.result {

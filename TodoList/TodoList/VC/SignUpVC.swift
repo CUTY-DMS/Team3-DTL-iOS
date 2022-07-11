@@ -23,7 +23,7 @@ class SignUpVC: UIViewController {
     
 
     @IBAction func btnNewUser(_ sender: UIButton) {
-        let url = "http://10.156.147.206:9090/users/signup"
+        let url = "http://10.156.147.206:8080/users/signup"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -32,7 +32,7 @@ class SignUpVC: UIViewController {
         // POST 로 보낼 정보
         let params: Parameters = [
             "userId" : txtFieldUserID.text!,
-            "userAge" : Int(txtFieldAge.text!)  ?? 0,
+            "userAge" : Int(txtFieldAge.text!) ?? 0,
             "userName" : txtFieldName.text!,
             "userPw" : txtFieldPW.text!
         ] as Dictionary
@@ -61,6 +61,7 @@ class SignUpVC: UIViewController {
                 
             case .failure(let error):
                 print(error)
+                debugPrint(response)
                 let failOnAlert = UIAlertController(title: "안내", message: "이미 존재하는 사용자입니다.", preferredStyle: UIAlertController.Style.alert)
                 let onAction = UIAlertAction(title: "로그인 페이지로 돌아가기", style: UIAlertAction.Style.default, handler: nil)
                 
