@@ -72,7 +72,6 @@
                                             <outlet property="lbDate" destination="GaC-r2-qfX" id="3qc-gt-SIx"/>
                                             <outlet property="lbTitle" destination="xCv-gy-64D" id="7We-cu-8fy"/>
                                             <outlet property="lbUser" destination="Nc1-M9-PAb" id="tNY-ha-cbN"/>
-                                            <segue destination="Diu-XS-WyB" kind="show" id="kqt-QZ-eNq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
