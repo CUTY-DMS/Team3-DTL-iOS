@@ -19,8 +19,9 @@ class MainVC: UIViewController {
         return f
     }()
     
+//    var result: [Content] = []
+    var result: [MainPostModel] = []
     
-    var result: [Content] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +32,18 @@ class MainVC: UIViewController {
         getUsers()
     }
     
-    
     private func getUsers() {
-        AF.request("http://35.216.6.254:8080/board/all", method: .get)
+        AF.request("http://10.156.147.206:8080/post/main", method: .get)
             .validate(statusCode: 200..<500)
             .responseData {
                 response in switch response.result {
                 case.success:
                     print(response.result)
-                    if let data = try? JSONDecoder().decode(MainPostModel.self, from: response.data!){
+                    debugPrint(response)
+                    if let data = try? JSONDecoder().decode([MainPostModel].self, from: response.data!){
                         print(data)
                         DispatchQueue.main.async {
-                            self.result = data.content
+                            self.result = data
                             self.listTableView.reloadData()
                         }
                     }
@@ -51,18 +52,6 @@ class MainVC: UIViewController {
                 }
             }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
