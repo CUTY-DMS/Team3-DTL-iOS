@@ -19,9 +19,12 @@ import Foundation
 //}
 
 struct MainPostModel: Codable {
-    let id: Int
-    let username: String
-    let title: String
-    let content: String
+    var id: Int
+    var content: String
+    var title: String
+    var created_at: String
+    var member_id: String
+    var like_count: Int
+    var success: Bool
 }
 
