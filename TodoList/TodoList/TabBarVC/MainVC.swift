@@ -62,7 +62,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! TodoListCell
-        cell.lbUser.text = "\(result[indexPath.row].username)"
+        cell.lbUser.text = "\(result[indexPath.row].member_id)"
         cell.lbTitle.text = "\(result[indexPath.row].title)"
         return cell
     }
