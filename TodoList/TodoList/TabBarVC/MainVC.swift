@@ -66,5 +66,15 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         cell.lbTitle.text = "\(result[indexPath.row].title)"
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        listTableView.deselectRow(at: indexPath, animated: true)
+        guard let view = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else { return }
+        view.postTitle = "\(result[indexPath.row].title)"
+        view.postWriter = "\(result[indexPath.row].member_id)"
+        view.txt = "\(result[indexPath.row].content)"
+        view.id = result[indexPath.row].id
+        navigationController?.pushViewController(view, animated: true)
+    }
+    
 }
