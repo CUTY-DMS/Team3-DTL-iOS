@@ -127,7 +127,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="caj-T2-gp2">
-                                <rect key="frame" x="43" y="161" width="326" height="671"/>
+                                <rect key="frame" x="43" y="161" width="326" height="621"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -137,7 +137,7 @@
                         <viewLayoutGuide key="safeArea" id="rv8-fI-Vfh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rv8-fI-Vfh" firstAttribute="bottom" secondItem="caj-T2-gp2" secondAttribute="bottom" constant="30" id="5mc-SQ-dlR"/>
+                            <constraint firstItem="rv8-fI-Vfh" firstAttribute="bottom" secondItem="caj-T2-gp2" secondAttribute="bottom" constant="80" id="5mc-SQ-dlR"/>
                             <constraint firstItem="caj-T2-gp2" firstAttribute="top" secondItem="8Uz-kk-Lxl" secondAttribute="bottom" constant="20" id="ANN-yD-Web"/>
                             <constraint firstItem="zNz-K6-5Xa" firstAttribute="top" secondItem="rv8-fI-Vfh" secondAttribute="top" constant="45" id="QSW-la-GST"/>
                             <constraint firstItem="8Uz-kk-Lxl" firstAttribute="leading" secondItem="rv8-fI-Vfh" secondAttribute="leading" constant="50" id="Qbr-WU-0ce"/>
@@ -157,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mkZ-Qh-FSO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4251" y="-704"/>
+            <point key="canvasLocation" x="4148" y="-704"/>
         </scene>
         <!--MyPageVC-->
         <scene sceneID="2ZN-NG-bwI">
