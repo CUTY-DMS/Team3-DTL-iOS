@@ -10,6 +10,8 @@ import Alamofire
 
 class MainVC: UIViewController {
     
+    let refreshControl = UIRefreshControl()
+    
     @IBOutlet weak var listTableView: UITableView!
     let formatter: DateFormatter = {
         let f = DateFormatter()
@@ -19,7 +21,6 @@ class MainVC: UIViewController {
         return f
     }()
     
-//    var result: [Content] = []
     var result: [MainPostModel] = []
     
     
@@ -29,10 +30,24 @@ class MainVC: UIViewController {
         listTableView.delegate = self
         listTableView.dataSource = self
         
-        getUsers()
+        refreshControl.endRefreshing() // 초기화 - refresh 종료
+        listTableView.refreshControl = UIRefreshControl()
+        
+        listTableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+    
+        listTableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 20)
+        
+        
+        getPostList()
     }
     
-    private func getUsers() {
+    
+    @objc func pullToRefresh(_ sender: Any) {
+        getPostList()
+    }
+    
+    
+    private func getPostList() {
         AF.request("http://10.156.147.206:8080/post/main", method: .get)
             .validate(statusCode: 200..<500)
             .responseData {
