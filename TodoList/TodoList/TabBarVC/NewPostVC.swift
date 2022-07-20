@@ -23,7 +23,7 @@ class NewPostVC: UIViewController {
         
         
         //전송할 값
-        let url = "http://10.156.147.206:8080/post"
+        let url = "http://10.156.147.206:9090/post"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .post
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

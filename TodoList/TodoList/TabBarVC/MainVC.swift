@@ -13,13 +13,7 @@ class MainVC: UIViewController {
     let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var listTableView: UITableView!
-    let formatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateStyle = .long
-        f.timeStyle = .short
-        
-        return f
-    }()
+
     
     var result: [MainPostModel] = []
     
@@ -48,7 +42,7 @@ class MainVC: UIViewController {
     
     
     private func getPostList() {
-        AF.request("http://10.156.147.206:8080/post/main", method: .get)
+        AF.request("http://10.156.147.206:9090/post/main", method: .get)
             .validate(statusCode: 200..<500)
             .responseData {
                 response in switch response.result {
@@ -79,6 +73,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! TodoListCell
         cell.lbUser.text = "\(result[indexPath.row].member_id)"
         cell.lbTitle.text = "\(result[indexPath.row].title)"
+        cell.lbDate.text = "\(result[indexPath.row].created_at)"
         return cell
     }
     
