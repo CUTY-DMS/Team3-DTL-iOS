@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -127,17 +128,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="caj-T2-gp2">
-                                <rect key="frame" x="43" y="161" width="326" height="621"/>
+                                <rect key="frame" x="43" y="161" width="326" height="551"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZQ-8g-QEw">
+                                <rect key="frame" x="337.5" y="712" width="26.5" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.31764706970000001" green="0.65098041299999998" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                </state>
+                                <state key="selected">
+                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rv8-fI-Vfh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rv8-fI-Vfh" firstAttribute="bottom" secondItem="caj-T2-gp2" secondAttribute="bottom" constant="80" id="5mc-SQ-dlR"/>
+                            <constraint firstItem="XZQ-8g-QEw" firstAttribute="top" secondItem="caj-T2-gp2" secondAttribute="bottom" id="4Yl-TX-5Kv"/>
+                            <constraint firstItem="rv8-fI-Vfh" firstAttribute="bottom" secondItem="caj-T2-gp2" secondAttribute="bottom" constant="150" id="5mc-SQ-dlR"/>
+                            <constraint firstItem="rv8-fI-Vfh" firstAttribute="trailing" secondItem="XZQ-8g-QEw" secondAttribute="trailing" constant="50" id="8mR-e9-6VA"/>
                             <constraint firstItem="caj-T2-gp2" firstAttribute="top" secondItem="8Uz-kk-Lxl" secondAttribute="bottom" constant="20" id="ANN-yD-Web"/>
                             <constraint firstItem="zNz-K6-5Xa" firstAttribute="top" secondItem="rv8-fI-Vfh" secondAttribute="top" constant="45" id="QSW-la-GST"/>
                             <constraint firstItem="8Uz-kk-Lxl" firstAttribute="leading" secondItem="rv8-fI-Vfh" secondAttribute="leading" constant="50" id="Qbr-WU-0ce"/>
@@ -603,6 +618,8 @@
     </scenes>
     <resources>
         <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
