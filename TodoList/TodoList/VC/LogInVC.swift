@@ -23,7 +23,8 @@ class LogInVC: UIViewController {
     }
     
     private func signin() {
-        let url = "http://10.156.147.206:9090/users/signin"
+        let url = "http://10.156.147.206:9090/users/signin" //학교
+//        let url = "http://13.125.180.241:8080/users/signin"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

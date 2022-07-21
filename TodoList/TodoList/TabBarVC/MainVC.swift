@@ -42,7 +42,8 @@ class MainVC: UIViewController {
     
     
     private func getPostList() {
-        AF.request("http://10.156.147.206:9090/post/main", method: .get)
+        AF.request("http://10.156.147.206:9090/post/main", method: .get) //학교
+//        AF.request("http://13.125.180.241:8080/post/main", method: .get)
             .validate(statusCode: 200..<500)
             .responseData {
                 response in switch response.result {
@@ -84,6 +85,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         view.postWriter = "\(result[indexPath.row].member_id)"
         view.txt = "\(result[indexPath.row].content)"
         view.id = result[indexPath.row].id
+        view.likeCount = result[indexPath.row].like_count
         navigationController?.pushViewController(view, animated: true)
     }
     
