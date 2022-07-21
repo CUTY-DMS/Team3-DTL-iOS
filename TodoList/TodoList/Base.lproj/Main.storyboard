@@ -134,8 +134,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZQ-8g-QEw">
-                                <rect key="frame" x="337.5" y="712" width="26.5" height="72"/>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="likeBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZQ-8g-QEw">
+                                <rect key="frame" x="337" y="712" width="27" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="IZY-F7-Hqd"/>
+                                    <constraint firstAttribute="width" constant="27" id="QNF-qo-sqv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
@@ -145,7 +149,16 @@
                                 <state key="selected">
                                     <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnLikes:" destination="Diu-XS-WyB" eventType="touchUpInside" id="wk2-lD-8Ju"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="              " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezG-X8-wMg">
+                                <rect key="frame" x="249.5" y="732" width="77.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.31764706970000001" green="0.65098041299999998" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rv8-fI-Vfh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -154,9 +167,11 @@
                             <constraint firstItem="rv8-fI-Vfh" firstAttribute="bottom" secondItem="caj-T2-gp2" secondAttribute="bottom" constant="150" id="5mc-SQ-dlR"/>
                             <constraint firstItem="rv8-fI-Vfh" firstAttribute="trailing" secondItem="XZQ-8g-QEw" secondAttribute="trailing" constant="50" id="8mR-e9-6VA"/>
                             <constraint firstItem="caj-T2-gp2" firstAttribute="top" secondItem="8Uz-kk-Lxl" secondAttribute="bottom" constant="20" id="ANN-yD-Web"/>
+                            <constraint firstItem="ezG-X8-wMg" firstAttribute="top" secondItem="caj-T2-gp2" secondAttribute="bottom" constant="20" id="F5a-06-Ese"/>
                             <constraint firstItem="zNz-K6-5Xa" firstAttribute="top" secondItem="rv8-fI-Vfh" secondAttribute="top" constant="45" id="QSW-la-GST"/>
                             <constraint firstItem="8Uz-kk-Lxl" firstAttribute="leading" secondItem="rv8-fI-Vfh" secondAttribute="leading" constant="50" id="Qbr-WU-0ce"/>
                             <constraint firstItem="rv8-fI-Vfh" firstAttribute="trailing" secondItem="caj-T2-gp2" secondAttribute="trailing" constant="45" id="Vmn-Ur-sPU"/>
+                            <constraint firstItem="XZQ-8g-QEw" firstAttribute="leading" secondItem="ezG-X8-wMg" secondAttribute="trailing" constant="10" id="m6a-qm-8kZ"/>
                             <constraint firstItem="8Uz-kk-Lxl" firstAttribute="top" secondItem="zNz-K6-5Xa" secondAttribute="bottom" id="nij-ci-PsZ"/>
                             <constraint firstItem="rv8-fI-Vfh" firstAttribute="trailing" secondItem="zNz-K6-5Xa" secondAttribute="trailing" constant="50" id="qng-jS-nZk"/>
                             <constraint firstItem="zNz-K6-5Xa" firstAttribute="leading" secondItem="rv8-fI-Vfh" secondAttribute="leading" constant="45" id="v5s-MY-Hdo"/>
@@ -165,6 +180,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="uAu-XS-wsE"/>
                     <connections>
+                        <outlet property="lbLikes" destination="ezG-X8-wMg" id="tcq-Dy-N9N"/>
                         <outlet property="lbPostTitle" destination="zNz-K6-5Xa" id="fgI-ET-Hfo"/>
                         <outlet property="lbPostWriter" destination="8Uz-kk-Lxl" id="fyw-pn-Vvv"/>
                         <outlet property="txtViewContent" destination="caj-T2-gp2" id="eyu-6r-sPk"/>
@@ -172,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mkZ-Qh-FSO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4148" y="-704"/>
+            <point key="canvasLocation" x="4147.826086956522" y="-704.46428571428567"/>
         </scene>
         <!--MyPageVC-->
         <scene sceneID="2ZN-NG-bwI">
