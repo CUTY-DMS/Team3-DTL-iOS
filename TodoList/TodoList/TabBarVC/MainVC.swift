@@ -42,8 +42,8 @@ class MainVC: UIViewController {
     
     
     private func getPostList() {
-        AF.request("http://10.156.147.206:9090/post/main", method: .get) //학교
-//        AF.request("http://13.125.180.241:8080/post/main", method: .get)
+//        AF.request("http://10.156.147.206:8080/post/main", method: .get) //학교
+        AF.request("http://13.125.180.241:8080/post/main", method: .get)
             .validate(statusCode: 200..<500)
             .responseData {
                 response in switch response.result {
@@ -75,6 +75,13 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         cell.lbUser.text = "\(result[indexPath.row].member_id)"
         cell.lbTitle.text = "\(result[indexPath.row].title)"
         cell.lbDate.text = "\(result[indexPath.row].created_at)"
+        
+        
+        if (result[indexPath.row].todo_success == true) {
+            cell.checkBoxBtn.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+        }
+        
+        
         return cell
     }
     

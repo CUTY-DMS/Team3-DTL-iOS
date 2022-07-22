@@ -40,7 +40,7 @@ class DetailVC: UIViewController {
     @IBAction func btnLikes(_ sender: UIButton) {
         sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         sender.titleLabel?.textColor = UIColor(named: "MainColor")
-//        let url = "http://10.156.147.206:9090/post/main/like/\(id)" //학교
+//        let url = "http://10.156.147.206:8080/post/main/like/\(id)" //학교
 ////        let url = "http://13.125.180.241:8080/post"
 //        var request = URLRequest(url: URL(string: url)!)
 //        request.method = .get
@@ -48,7 +48,7 @@ class DetailVC: UIViewController {
 //        request.timeoutInterval = 10
 //
 //
-////        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 //        request.addValue("application/json", forHTTPHeaderField: "Accept")
 //        request.setValue( "\(KeyChain.read(key: "accessToken") ?? "")", forHTTPHeaderField: "Authorization")
 //

@@ -23,8 +23,8 @@ class NewPostVC: UIViewController {
         
         
         //전송할 값
-        let url = "http://10.156.147.206:9090/post" //학교
-//        let url = "http://13.125.180.241:8080/post"
+//        let url = "http://10.156.147.206:8080/post" //학교
+        let url = "http://13.125.180.241:8080/post"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .post
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -33,7 +33,8 @@ class NewPostVC: UIViewController {
         
 //        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue( "\(KeyChain.read(key: "accessToken") ?? "")", forHTTPHeaderField: "Authorization")
+        request.setValue("\(KeyChain.read(key: "AccessToken") ?? "")", forHTTPHeaderField: "AccessToken")
+        
         
         // POST 로 보낼 정보
         let params = ["title" : txtFieldNewTitle!,

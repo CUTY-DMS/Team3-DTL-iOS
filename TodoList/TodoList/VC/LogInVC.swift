@@ -23,8 +23,8 @@ class LogInVC: UIViewController {
     }
     
     private func signin() {
-        let url = "http://10.156.147.206:9090/users/signin" //학교
-//        let url = "http://13.125.180.241:8080/users/signin"
+//        let url = "http://10.156.147.206:8080/users/signin" //학교
+        let url = "http://13.125.180.241:8080/users/signin"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -48,8 +48,8 @@ class LogInVC: UIViewController {
             case .success:
                 debugPrint(response)
                 if let data = try? JSONDecoder().decode(TokenModel.self, from: response.data!) {
-                    KeyChain.create(key: "accessToken", token: data.accessToken)
-                    KeyChain.create(key: "refreshToken", token: data.refreshToken)
+                    KeyChain.create(key: "AccessToken", token: data.AccessToken)
+//                    KeyChain.create(key: "refreshToken", token: data.refreshToken)
                 }
                 
                 guard let logInVC = self.storyboard?.instantiateViewController(identifier: "TabBarVC") else { return }
