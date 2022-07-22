@@ -25,6 +25,6 @@ struct MainPostModel: Codable {
     var created_at: String
     var member_id: String
     var like_count: Int
-    var success: Bool
+    var todo_success: Bool
 }
 
