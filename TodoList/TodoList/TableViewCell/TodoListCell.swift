@@ -11,6 +11,7 @@ class TodoListCell: UITableViewCell {
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbUser: UILabel!
     @IBOutlet weak var lbDate: UILabel!
+    @IBOutlet weak var checkBoxBtn: UIButton!
     
     
     override func awakeFromNib() {
@@ -20,12 +21,12 @@ class TodoListCell: UITableViewCell {
     
     
     @IBAction func btnCheckBox(_ sender: UIButton) {
-        sender.isSelected.toggle()
+//        sender.isSelected.toggle()
     }
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+//        super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
