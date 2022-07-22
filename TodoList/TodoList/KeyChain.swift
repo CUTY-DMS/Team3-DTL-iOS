@@ -17,7 +17,6 @@ class KeyChain {
             kSecValueData: token.data(using: .utf8, allowLossyConversion: false) as Any   // 저장할 Token
         ]
         SecItemDelete(query)    // Keychain은 Key값에 중복이 생기면, 저장할 수 없기 때문에 먼저 Delete해줌
-
         let status = SecItemAdd(query, nil)
         assert(status == noErr, "failed to save Token")
     }
