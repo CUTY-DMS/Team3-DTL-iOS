@@ -33,7 +33,7 @@ class NewPostVC: UIViewController {
         
 //        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("\(KeyChain.read(key: "AccessToken") ?? "")", forHTTPHeaderField: "AccessToken")
+        request.setValue("\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
         
         
         // POST 로 보낼 정보

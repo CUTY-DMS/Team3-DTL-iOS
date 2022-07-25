@@ -48,7 +48,7 @@ class LogInVC: UIViewController {
             case .success:
                 debugPrint(response)
                 if let data = try? JSONDecoder().decode(TokenModel.self, from: response.data!) {
-                    KeyChain.create(key: "AccessToken", token: data.AccessToken)
+                    KeyChain.create(key: "token", token: data.token)
 //                    KeyChain.create(key: "refreshToken", token: data.refreshToken)
                 }
                 
