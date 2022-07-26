@@ -97,6 +97,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         view.txt = "\(result[indexPath.row].content)"
         view.id = result[indexPath.row].id
         view.likeCount = result[indexPath.row].like_count
+        view.successResult = result[indexPath.row].todo_success
         navigationController?.pushViewController(view, animated: true)
     }
     
