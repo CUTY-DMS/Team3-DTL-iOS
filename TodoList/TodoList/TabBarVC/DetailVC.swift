@@ -14,6 +14,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var lbPostWriter: UILabel!
     @IBOutlet weak var txtViewContent: UITextView!
     @IBOutlet weak var lbLikes: UILabel!
+    @IBOutlet weak var btnSuccess: UIButton!
     
     var id: Int = 0
     var postTitle: String = ""
@@ -21,7 +22,7 @@ class DetailVC: UIViewController {
     var txt: String = ""
     var likeCount: Int = 0
     var indexList = [MainPostModel]()
-    var result: [MainPostModel] = []
+    var successResult: Bool = false
     var indexValue = 0
     var likes: Bool = false
 
@@ -32,14 +33,23 @@ class DetailVC: UIViewController {
         txtViewContent.text = "\(txt)"
 //        getPostDetail()
         lbLikes.text = "\(likeCount)"
+        
+        if (successResult == true) {
+            btnSuccess.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+        }
     }
     
     
     
-    
     @IBAction func btnLikes(_ sender: UIButton) {
-        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         sender.titleLabel?.textColor = UIColor(named: "MainColor")
+        let config = UIImage.SymbolConfiguration(
+                    pointSize: 20, weight: .regular, scale: .default)
+        let image = UIImage(systemName: "heart.fill", withConfiguration: config)
+        sender.setImage(image, for: .normal)
+        
+        
 //        let url = "http://10.156.147.206:8080/post/main/like/\(id)" //학교
 ////        let url = "http://13.125.180.241:8080/post"
 //        var request = URLRequest(url: URL(string: url)!)
