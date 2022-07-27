@@ -35,6 +35,9 @@ class MainVC: UIViewController {
         
         
         getPostList()
+        
+        
+        
     }
     
     
@@ -45,13 +48,15 @@ class MainVC: UIViewController {
     }
     
     
+
+    
     private func getPostList() {
 //        AF.request("http://10.156.147.206:8080/post/main", method: .get) //학교
         AF.request("http://13.125.180.241:8080/post/main", method: .get)
             .validate(statusCode: 200..<500)
             .responseData {
                 response in switch response.result {
-                case.success:
+                case .success:
                     print(response.result)
                     debugPrint(response)
                     if let data = try? JSONDecoder().decode([MainPostModel].self, from: response.data!){
