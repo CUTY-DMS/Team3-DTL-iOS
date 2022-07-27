@@ -22,7 +22,7 @@ class DetailVC: UIViewController {
     var txt: String = ""
     var likeCount: Int = 0
     var indexList = [MainPostModel]()
-    var successResult: Bool = false
+    var successResult: Bool? = false
     var indexValue = 0
     var likes: Bool = false
 
@@ -34,8 +34,15 @@ class DetailVC: UIViewController {
 //        getPostDetail()
         lbLikes.text = "\(likeCount)"
         
+        
+        btnSuccess.titleLabel?.textColor = UIColor(named: "MainColor")
         if (successResult == true) {
-            btnSuccess.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+//            btnSuccess.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            
+            let todoState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
+            let successImage = UIImage(systemName: "checkmark.square.fill", withConfiguration: todoState)
+            
+            btnSuccess.setImage(successImage, for: .normal)
         }
     }
     
