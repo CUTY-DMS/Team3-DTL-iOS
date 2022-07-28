@@ -20,7 +20,7 @@ struct TodosModel: Codable {
     var content: String
     var created_at: String
     var like_count: Int
-    var todo_success: Bool
+    var success: Bool
 }
 
 

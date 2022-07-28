@@ -10,7 +10,7 @@ import UIKit
 class MyPostsCell: UITableViewCell {
     @IBOutlet weak var lbMyPostTitle: UILabel!
     @IBOutlet weak var lbMyPostDate: UILabel!
-    @IBOutlet weak var TodoStateBtn: UIButton!
+    @IBOutlet weak var todoStateBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
