@@ -23,20 +23,10 @@ class MainVC: UIViewController {
         
         listTableView.delegate = self
         listTableView.dataSource = self
-        
-        
-        listTableView.refreshControl = UIRefreshControl()
-        
-        listTableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
-        refreshControl.endRefreshing() // 초기화 - refresh 종료
-        
-        
+      
         listTableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 20)
         
-        
         getPostList()
-        
-        
         
     }
     
@@ -64,12 +54,21 @@ class MainVC: UIViewController {
                         DispatchQueue.main.async {
                             self.result = data
                             self.listTableView.reloadData()
+                            
+                            self.listTableView.refreshControl = UIRefreshControl()
+                            self.listTableView.refreshControl?.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
+                            self.refreshControl.endRefreshing() // 초기화 - refresh 종료
                         }
                     }
                 case .failure(let error):
                     print(error)
+                    
+                    self.listTableView.refreshControl = UIRefreshControl()
+                    self.listTableView.refreshControl?.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
+                    self.refreshControl.endRefreshing() // 초기화 - refresh 종료
                 }
             }
+    
     }
 }
 
@@ -84,7 +83,6 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         cell.lbUser.text = "\(result[indexPath.row].member_id)"
         cell.lbTitle.text = "\(result[indexPath.row].title)"
         cell.lbDate.text = "\(result[indexPath.row].created_at)"
-        
         
         if (result[indexPath.row].todo_success == true) {
             cell.checkBoxBtn.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
