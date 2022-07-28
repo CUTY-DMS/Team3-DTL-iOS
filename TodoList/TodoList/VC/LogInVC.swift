@@ -16,11 +16,25 @@ class LogInVC: UIViewController {
         signin()
     }
     
+    @IBOutlet weak var passwordEyeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        txtFieldPW.isSecureTextEntry = true
     }
+    
+    @IBAction func passwordEyeButtonDidTap(_ sender: Any) {
+        // 보안 설정 반전
+        txtFieldPW.isSecureTextEntry.toggle()
+        // 버튼 선택 상태 반전
+        passwordEyeButton.isSelected.toggle()
+        // 버튼 선택 상태에 따른 눈 모양 이미지 변경
+        let eyeImage = passwordEyeButton.isSelected ? "password shown eye icon" : "password hidden eye icon"
+        passwordEyeButton.setImage(UIImage(named: eyeImage), for: .normal)
+        // 버튼 선택된 경우 자동으로 들어가는 틴트 컬러를 투명으로 변경해줌
+        passwordEyeButton.tintColor = .clear
+    }
+    
     
     private func signin() {
 //        let url = "http://10.156.147.206:8080/users/signin" //학교
