@@ -1,8 +1,8 @@
 //
-//  TokenModel.swift
+//  Token.swift
 //  TodoList
 //
-//  Created by 강인혜 on 2022/07/06.
+//  Created by 강인혜 on 2022/07/28.
 //
 
 import Foundation
