@@ -17,8 +17,6 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
@@ -30,6 +28,7 @@ class SignUpVC: UIViewController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 10
 
+        
         // POST 로 보낼 정보
         let params: Parameters = [
             "userId" : txtFieldUserID.text!,
@@ -38,7 +37,6 @@ class SignUpVC: UIViewController {
             "userPw" : txtFieldPW.text!
         ] as Dictionary
 
-    
         
         // httpBody 에 parameters 추가
         do {
@@ -46,7 +44,6 @@ class SignUpVC: UIViewController {
         } catch {
             print("http Body Error")
         }
-        
         
         
         AF.request(request).response { (response) in
