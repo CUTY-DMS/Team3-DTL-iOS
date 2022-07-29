@@ -36,22 +36,55 @@ class ReviseVC: UIViewController {
         
     }
     
-    private func backToMyPage() {
-//        guard let pvc = self.presentingViewController else { return }
-//
-//        self.dismiss(animated: true) {
-//          pvc.present(MyPageVC(), animated: true, completion: nil)
-//        }
-        
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
-
-//        guard let pvc = self.storyboard?.instantiateViewController(identifier: "MyPageVC") else { return }
-//            self.present(pvc, animated: true)
-    }
-    
     
     @IBAction func btnMyTodoState(_ sender: UIButton) {
+        
+        if (reviseState == true) {
+            sender.titleLabel?.textColor = UIColor(named: "MainColor")
+            let config = UIImage.SymbolConfiguration(
+                pointSize: 20, weight: .regular, scale: .default)
+            let image = UIImage(systemName: "square", withConfiguration: config)
+            sender.setImage(image, for: .normal)
+        }
+        
+        else if (reviseState == false) {
+            sender.titleLabel?.textColor = UIColor(named: "MainColor")
+            let config = UIImage.SymbolConfiguration(
+                pointSize: 20, weight: .regular, scale: .default)
+            let image = UIImage(systemName: "checkmark.square.fill", withConfiguration: config)
+            sender.setImage(image, for: .normal)
+        }
+        
+        
+        let url = "http://13.125.180.241:8080/users/my/\(reviseID)"
+        var request = URLRequest(url: URL(string: url)!)
+        request.method = .patch
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
+        
+        AF.request(request).response { (response) in
+            print(response.request ?? "")
+            switch response.result {
+            case .success:
+                debugPrint(response)
+                
+                
+                
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
     }
+    
+    
+//    func complete() {
+//        if
+//        
+//    }
     
     
     @IBAction func btnRevise(_ sender: UIButton) {
@@ -91,7 +124,7 @@ class ReviseVC: UIViewController {
                 
                 successOnAlert.addAction(onAction)
                 self.present(successOnAlert, animated: true, completion: nil)
-                self.backToMyPage()
+                
                 
                 
             case .failure(let error):
@@ -101,7 +134,7 @@ class ReviseVC: UIViewController {
                 
                 failOnAlert.addAction(onAction)
                 self.present(failOnAlert, animated: true, completion: nil)
-                self.backToMyPage()
+                
             }
         }
     }
