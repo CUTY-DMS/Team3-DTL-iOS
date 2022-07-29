@@ -155,7 +155,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnLikes:" destination="Diu-XS-WyB" eventType="touchUpInside" id="wk2-lD-8Ju"/>
+                                    <action selector="btnLikes:" destination="Diu-XS-WyB" eventType="touchUpInside" id="XhI-XW-PhM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="              " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezG-X8-wMg">
@@ -217,6 +217,7 @@
                         <outlet property="lbPostTitle" destination="zNz-K6-5Xa" id="fgI-ET-Hfo"/>
                         <outlet property="lbPostWriter" destination="8Uz-kk-Lxl" id="fyw-pn-Vvv"/>
                         <outlet property="lbWrittenDate" destination="IfG-o0-5GE" id="2C3-0y-4mL"/>
+                        <outlet property="likeBtn" destination="XZQ-8g-QEw" id="DNj-2a-01z"/>
                         <outlet property="txtViewContent" destination="caj-T2-gp2" id="eyu-6r-sPk"/>
                     </connections>
                 </viewController>
@@ -388,8 +389,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnLikes:" destination="Diu-XS-WyB" eventType="touchUpInside" id="tpY-ir-WRa"/>
-                                    <action selector="btnPostLike:" destination="CnU-Hx-U7r" eventType="touchUpInside" id="2Jq-lF-9kv"/>
+                                    <action selector="btnMyPostLike:" destination="CnU-Hx-U7r" eventType="touchUpInside" id="e7B-Qc-wLN"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="              " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0G1-5R-rAz">
@@ -455,6 +455,7 @@
                         <outlet property="lbMyLikesCount" destination="0G1-5R-rAz" id="sjc-j7-uXl"/>
                         <outlet property="lbMyPostDate" destination="s3c-yF-gZV" id="LDz-0m-Kx0"/>
                         <outlet property="lbMyPostTitle" destination="4iQ-YW-mWS" id="ooo-rU-I0p"/>
+                        <outlet property="myLikeBtn" destination="HSl-x2-N85" id="4cr-K6-pSr"/>
                         <outlet property="txtViewMyPostContent" destination="1YO-qr-QQo" id="nMb-5B-AE5"/>
                     </connections>
                 </viewController>
@@ -916,7 +917,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="myTodoStateBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwF-jl-cNd">
-                                <rect key="frame" x="30" y="64" width="30" height="30"/>
+                                <rect key="frame" x="30" y="69" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="AHU-eP-sgp"/>
                                     <constraint firstAttribute="height" constant="30" id="TOK-2u-6Xn"/>
@@ -977,7 +978,7 @@
                             <constraint firstItem="8Tf-yi-e4F" firstAttribute="top" secondItem="eb0-LD-h26" secondAttribute="top" id="Mp1-Fg-H5O"/>
                             <constraint firstItem="dSi-6M-GXz" firstAttribute="leading" secondItem="eb0-LD-h26" secondAttribute="leading" constant="43" id="QxV-dH-cfZ"/>
                             <constraint firstItem="eb0-LD-h26" firstAttribute="trailing" secondItem="BOD-jt-jrx" secondAttribute="trailing" constant="70" id="YnU-jK-baG"/>
-                            <constraint firstItem="jwF-jl-cNd" firstAttribute="top" secondItem="eb0-LD-h26" secondAttribute="top" constant="20" id="bnb-gp-xfe"/>
+                            <constraint firstItem="jwF-jl-cNd" firstAttribute="top" secondItem="eb0-LD-h26" secondAttribute="top" constant="25" id="bnb-gp-xfe"/>
                             <constraint firstItem="eb0-LD-h26" firstAttribute="trailing" secondItem="dSi-6M-GXz" secondAttribute="trailing" constant="45" id="d9v-c7-vPP"/>
                             <constraint firstItem="jwF-jl-cNd" firstAttribute="leading" secondItem="eb0-LD-h26" secondAttribute="leading" constant="30" id="gYj-ks-jWj"/>
                             <constraint firstItem="d7k-30-z0T" firstAttribute="top" secondItem="dSi-6M-GXz" secondAttribute="bottom" constant="5" id="lHy-QK-fFe"/>
