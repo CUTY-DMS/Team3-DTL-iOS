@@ -11,6 +11,7 @@ import Alamofire
 class MyPageVC: UIViewController {
     @IBOutlet weak var myPostsTableView: UITableView!
     @IBOutlet weak var lbMyName: UILabel!
+    @IBOutlet weak var lbMyAge: UILabel!
     
     var myPosts = MyPostModel()
     
@@ -19,12 +20,14 @@ class MyPageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         myPostsTableView.delegate = self
         myPostsTableView.dataSource = self
         
         myPostsTableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 20)
-        
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         getMyPostList()
     }
     
@@ -87,6 +90,7 @@ extension MyPageVC: UITableViewDelegate, UITableViewDataSource {
         myPostCell.lbMyPostDate.text = "\(myPosts.todos[indexPath.row].created_at)"
 
         lbMyName.text = "\(myPosts.user_name)"
+        lbMyAge.text = "\(myPosts.user_age)세"
         
 
         if (myPosts.todos[indexPath.row].success == true) {

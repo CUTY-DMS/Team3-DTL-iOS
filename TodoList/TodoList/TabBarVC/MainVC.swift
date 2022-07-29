@@ -26,8 +26,10 @@ class MainVC: UIViewController {
       
         listTableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 20)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         getPostList()
-        
     }
     
     
