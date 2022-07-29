@@ -16,6 +16,10 @@ class NewPostVC: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     
     @IBAction func btnSendPost(_ sender: Any) {
         let txtFieldNewTitle = self.txtFieldNewTitle.text
@@ -58,6 +62,8 @@ class NewPostVC: UIViewController {
                 
                 successOnAlert.addAction(onAction)
                 self.present(successOnAlert, animated: true, completion: nil)
+                self.txtFieldNewTitle.text = nil
+                self.txtViewNewContent.text = nil
         
                 
             case .failure(let error):
@@ -67,6 +73,9 @@ class NewPostVC: UIViewController {
                 
                 failOnAlert.addAction(onAction)
                 self.present(failOnAlert, animated: true, completion: nil)
+                
+                self.txtFieldNewTitle.text = nil
+                self.txtViewNewContent.text = nil
             }
         }
     }
