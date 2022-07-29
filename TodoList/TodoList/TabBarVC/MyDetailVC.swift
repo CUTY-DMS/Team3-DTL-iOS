@@ -46,7 +46,17 @@ class MyDetailVC: UIViewController {
     
     @IBAction func btnToRevise(_ sender: UIButton) {
         guard let toRevise = self.storyboard?.instantiateViewController(withIdentifier: "ReviseVC") as? ReviseVC else { return }
+        
+        toRevise.reviseTitle = "\(lbMyPostTitle.text!)"
+        toRevise.reviseContent = "\(txtViewMyPostContent.text!)"
+        toRevise.reviseState = state
+        toRevise.reviseID = myID
+        
+        
+        navigationController?.pushViewController(toRevise, animated: true)
     }
     
-
+    @IBAction func btnPostLike(_ sender: UIButton) {
+    }
+    
 }
