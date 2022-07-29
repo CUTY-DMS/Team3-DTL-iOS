@@ -86,7 +86,11 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         cell.lbTitle.text = "\(result[indexPath.row].title)"
         cell.lbDate.text = "\(result[indexPath.row].created_at)"
         
-        if (result[indexPath.row].todo_success == true) {
+        if (result[indexPath.row].todo_success == false) {
+            cell.checkBoxBtn.setImage(UIImage(systemName: "square"), for: .normal)
+        }
+        
+        else if (result[indexPath.row].todo_success == true) {
             cell.checkBoxBtn.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
         }
         

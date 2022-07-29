@@ -34,8 +34,6 @@ class MyPageVC: UIViewController {
     
     @objc func pullToRefresh(_ sender: Any) {
         getMyPostList()
-        
-        myRefreshControl.endRefreshing() // 초기화 - refresh 종료
     }
     
     
@@ -93,7 +91,11 @@ extension MyPageVC: UITableViewDelegate, UITableViewDataSource {
         lbMyAge.text = "\(myPosts.user_age)세"
         
 
-        if (myPosts.todos[indexPath.row].success == true) {
+        if (myPosts.todos[indexPath.row].success == false) {
+            myPostCell.todoStateBtn.setImage(UIImage(systemName: "square"), for: .normal)
+        }
+        
+        else if (myPosts.todos[indexPath.row].success == true) {
             myPostCell.todoStateBtn.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
         }
 
