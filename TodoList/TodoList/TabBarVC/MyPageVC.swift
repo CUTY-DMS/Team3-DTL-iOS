@@ -10,10 +10,12 @@ import Alamofire
 
 class MyPageVC: UIViewController {
     @IBOutlet weak var myPostsTableView: UITableView!
+    @IBOutlet weak var lbMyName: UILabel!
+    
+    var myPosts = MyPostModel()
     
     let myRefreshControl = UIRefreshControl()
     
-    var myPosts: [MyPostModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,64 +23,78 @@ class MyPageVC: UIViewController {
         myPostsTableView.delegate = self
         myPostsTableView.dataSource = self
         
-        myPostsTableView.refreshControl = UIRefreshControl()
-        myPostsTableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
-        myRefreshControl.endRefreshing()
- 
         myPostsTableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 20)
         
         getMyPostList()
     }
     
+    
     @objc func pullToRefresh(_ sender: Any) {
         getMyPostList()
+        
         myRefreshControl.endRefreshing() // 초기화 - refresh 종료
     }
-
+    
+    
     private func getMyPostList() {
 //        let url = "http://10.156.147.206:8080/users/my" //학교
         let url = "http://13.125.180.241:8080/users/my"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-  
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
-       
+        request.setValue("\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
+        
+        
         AF.request(request).response { (response) in switch response.result {
-                case .success:
-                    debugPrint(response)
-    
-                    if let data = try? JSONDecoder().decode([MyPostModel].self, from: response.data!){
-                        DispatchQueue.main.async {
-                            self.myPosts = data
-                            self.myPostsTableView.reloadData()
-                        }
+            case .success:
+                debugPrint(response)
+            
+                if let data = try? JSONDecoder().decode(MyPostModel.self, from: response.data!) {
+                    DispatchQueue.main.async {
+                        print(data)
+                        
+                        self.myPosts = data
+                        self.myPostsTableView.reloadData()
+                        
+                        self.myPostsTableView.refreshControl = UIRefreshControl()
+                        self.myPostsTableView.refreshControl?.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
+                        self.myRefreshControl.endRefreshing()
                     }
-                case .failure(let error):
-                    print(error)
                 }
+            
+            case .failure(let error):
+                print(error)
+            
+                self.myPostsTableView.refreshControl = UIRefreshControl()
+                self.myPostsTableView.refreshControl?.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
+                self.myRefreshControl.endRefreshing()
+            }
         }
     }
+    
+    
 }
 
 
-extension MyPageVC: UITableViewDataSource, UITableViewDelegate {
+extension MyPageVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myPosts.count
+        return myPosts.todos.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let myPostCell = tableView.dequeueReusableCell(withIdentifier: "myPostsCell", for: indexPath) as! MyPostsCell
-        myPostCell.lbMyPostTitle.text = "\(myPosts[indexPath.row].todos[indexPath.row].title)"
-        myPostCell.lbMyPostDate.text = "\(myPosts[indexPath.row].todos[indexPath.row].created_at)"
+        let myPostCell = tableView.dequeueReusableCell(withIdentifier: "myListCell", for: indexPath) as! MyPostsCell
 
-        if (myPosts[indexPath.row].todos[indexPath.row].success == true) {
+        myPostCell.lbMyPostTitle.text = "\(myPosts.todos[indexPath.row].title)"
+        myPostCell.lbMyPostDate.text = "\(myPosts.todos[indexPath.row].created_at)"
+
+        lbMyName.text = "\(myPosts.user_name)"
+        
+
+        if (myPosts.todos[indexPath.row].success == true) {
             myPostCell.todoStateBtn.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
         }
 
-
         return myPostCell
     }
-
+    
+    
 }

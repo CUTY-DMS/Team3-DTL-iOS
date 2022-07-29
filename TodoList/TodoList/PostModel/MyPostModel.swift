@@ -8,20 +8,19 @@
 import Foundation
 
 struct MyPostModel: Codable {
-    var user_name: String
-    var user_id: String
-    var user_age: Int
+    var user_name: String = .init()
+    var user_id: String = .init()
+    var user_age: Int = .init()
     var todos = [TodosModel]()
 }
 
 struct TodosModel: Codable {
-    var id: Int
-    var title: String
-    var content: String
-    var created_at: String
-    var like_count: Int
-    var success: Bool
+    var id: Int = .init()
+    var title: String = .init()
+    var content: String = .init()
+    var created_at: String = .init()
+    var like_count: Int = .init()
+    var success: Bool = .init()
 }
-
 
 
