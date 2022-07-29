@@ -97,4 +97,20 @@ extension MyPageVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        myPostsTableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let myDetail = self.storyboard?.instantiateViewController(withIdentifier: "MyDetailVC") as? MyDetailVC else { return }
+        
+        myDetail.myTitle = "\(myPosts.todos[indexPath.row].title)"
+        myDetail.myContent = "\(myPosts.todos[indexPath.row].content)"
+        myDetail.date = "\(myPosts.todos[indexPath.row].created_at)"
+        myDetail.state = myPosts.todos[indexPath.row].success
+        myDetail.myID = myPosts.todos[indexPath.row].id
+        myDetail.myLikesCount = myPosts.todos[indexPath.row].like_count
+        
+        navigationController?.pushViewController(myDetail, animated: true)
+    }
+    
+    
 }
