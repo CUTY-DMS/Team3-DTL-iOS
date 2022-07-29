@@ -13,22 +13,19 @@ class MainVC: UIViewController {
     let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var listTableView: UITableView!
-
     
     var result: [MainPostModel] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         listTableView.delegate = self
         listTableView.dataSource = self
       
         listTableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 20)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         getPostList()
     }
     
@@ -39,8 +36,6 @@ class MainVC: UIViewController {
         refreshControl.endRefreshing() // 초기화 - refresh 종료
     }
     
-    
-
     
     private func getPostList() {
 //        AF.request("http://10.156.147.206:8080/post/main", method: .get) //학교

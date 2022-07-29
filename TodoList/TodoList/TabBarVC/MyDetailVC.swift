@@ -13,6 +13,7 @@ class MyDetailVC: UIViewController {
     @IBOutlet weak var lbMyPostDate: UILabel!
     @IBOutlet weak var btnMyTodoState: UIButton!
     @IBOutlet weak var lbMyLikesCount: UILabel!
+    @IBOutlet weak var myLikeBtn: UIButton!
     
     
     var myTitle: String = ""
@@ -24,10 +25,11 @@ class MyDetailVC: UIViewController {
     var liked: Bool = false
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         lbMyPostTitle.text = "\(myTitle)"
         lbMyPostDate.text = "\(date)"
         txtViewMyPostContent.text = "\(myContent)"
@@ -41,8 +43,8 @@ class MyDetailVC: UIViewController {
             
             btnMyTodoState.setImage(successImage, for: .normal)
         }
-        
     }
+    
     
     @IBAction func btnToRevise(_ sender: UIButton) {
         guard let toRevise = self.storyboard?.instantiateViewController(withIdentifier: "ReviseVC") as? ReviseVC else { return }
@@ -56,7 +58,7 @@ class MyDetailVC: UIViewController {
         navigationController?.pushViewController(toRevise, animated: true)
     }
     
-    @IBAction func btnPostLike(_ sender: UIButton) {
+    @IBAction func btnMyPostLike(_ sender: UIButton) {
     }
     
 }

@@ -38,7 +38,6 @@ class ReviseVC: UIViewController {
     
     
     @IBAction func btnMyTodoState(_ sender: UIButton) {
-        
         if (reviseState == true) {
             sender.titleLabel?.textColor = UIColor(named: "MainColor")
             let config = UIImage.SymbolConfiguration(
@@ -71,26 +70,17 @@ class ReviseVC: UIViewController {
             case .success:
                 debugPrint(response)
                 
-                
-                
             case .failure(let error):
                 print(error)
-                
             }
         }
     }
     
     
-//    func complete() {
-//        if
-//        
-//    }
-    
     
     @IBAction func btnRevise(_ sender: UIButton) {
         let txtFieldReviseTitle = self.txtFieldReviseTitle.text
         let txtViewReviseContent = self.txtViewReviseContent.text
-        
         
         //전송할 값
         let url = "http://13.125.180.241:8080/users/my/\(reviseID)"
@@ -126,7 +116,6 @@ class ReviseVC: UIViewController {
                 self.present(successOnAlert, animated: true, completion: nil)
                 
                 
-                
             case .failure(let error):
                 print(error)
                 let failOnAlert = UIAlertController(title: "안내", message: "게시글 수정 실패", preferredStyle: UIAlertController.Style.alert)
@@ -134,7 +123,6 @@ class ReviseVC: UIViewController {
                 
                 failOnAlert.addAction(onAction)
                 self.present(failOnAlert, animated: true, completion: nil)
-                
             }
         }
     }
