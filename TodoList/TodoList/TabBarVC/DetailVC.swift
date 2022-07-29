@@ -15,9 +15,10 @@ class DetailVC: UIViewController {
     @IBOutlet weak var txtViewContent: UITextView!
     @IBOutlet weak var lbLikes: UILabel!
     @IBOutlet weak var lbWrittenDate: UILabel!
+    @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var btnSuccess: UIButton!
     
-    var result: [LikeModel] = []
+    var likeResult = LikeModel()
     var refreshControl = UIRefreshControl()
     
     var id: Int = 0
@@ -25,14 +26,19 @@ class DetailVC: UIViewController {
     var postWriter: String = ""
     var txt: String = ""
     var likeCount: Int = 0
-    var indexList = [MainPostModel]()
     var successResult: Bool? = false
     var createdDate: String = ""
-    var likes: Bool = false
+    var liked: Bool? = true
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getHeartsInfo()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getHeartsInfo()
+        
         lbPostTitle.text = "\(postTitle)"
         lbPostWriter.text = "\(postWriter)"
         txtViewContent.text = "\(txt)"
@@ -46,35 +52,45 @@ class DetailVC: UIViewController {
             
             let todoState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
             let successImage = UIImage(systemName: "checkmark.square.fill", withConfiguration: todoState)
-            
             btnSuccess.setImage(successImage, for: .normal)
         }
         
         
+        if (liked == true) {
+            let likeState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
+            let likedImage = UIImage(systemName: "heart.fill", withConfiguration: likeState)
+            likeBtn.setImage(likedImage, for: .normal)
+        }
         
-        getHeartsInfo()
+        else if (liked == false) {
+            let notLiked = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
+            let notLikedImage = UIImage(systemName: "heart", withConfiguration: notLiked)
+            likeBtn.setImage(notLikedImage, for: .normal)
+        }
     }
     
+    
     private func getHeartsInfo() {
-        //        let url = "http://10.156.147.206:8080/post/main/like/\(id)" //학교
+//        let url = "http://10.156.147.206:8080/post/main/like/\(id)" //학교
         let url = "http://13.125.180.241:8080/post/main/like/\(id)"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
         request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
 
-        
+
         AF.request(request).response { (response) in switch response.result {
             case .success:
                 debugPrint(response)
-                if let data = try? JSONDecoder().decode([LikeModel].self, from: response.data!){
+                if let data = try? JSONDecoder().decode(LikeModel.self, from: response.data!){
                     DispatchQueue.main.async {
-                        self.result = data
+                        self.likeResult = data
 
                         self.refreshControl = UIRefreshControl()
                         self.refreshControl.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
                         self.refreshControl.endRefreshing() // 초기화 - refresh 종료
                         
-                        
+                        self.lbLikes.text = "\(self.likeResult.like_count)"
+                        self.liked = self.likeResult.liked
                     }
                 }
 
@@ -98,28 +114,24 @@ class DetailVC: UIViewController {
     }
     
     
+    
     @IBAction func btnLikes(_ sender: UIButton) {
+        getHeartsInfo()
         
-////        if (self.already == true) {
-////            sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//            sender.titleLabel?.textColor = UIColor(named: "MainColor")
-//            let config = UIImage.SymbolConfiguration(
-//                pointSize: 20, weight: .regular, scale: .default)
-//            let image = UIImage(systemName: "heart.fill", withConfiguration: config)
-//            sender.setImage(image, for: .normal)
-//
-//            getReloadPost()
-//        }
-//
-//        else {
-//            //        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//            sender.titleLabel?.textColor = UIColor(named: "MainColor")
-//            let config = UIImage.SymbolConfiguration(
-//                pointSize: 20, weight: .regular, scale: .default)
-//            let image = UIImage(systemName: "heart", withConfiguration: config)
-//            sender.setImage(image, for: .normal)
-//
-//            getReloadPost()
-//        }
+        if (liked == true) {
+            sender.titleLabel?.textColor = UIColor(named: "MainColor")
+            let config = UIImage.SymbolConfiguration(
+                pointSize: 20, weight: .regular, scale: .default)
+            let image = UIImage(systemName: "heart", withConfiguration: config)
+            sender.setImage(image, for: .normal)
+        }
+        
+        else if (liked == false) {
+            sender.titleLabel?.textColor = UIColor(named: "MainColor")
+            let config = UIImage.SymbolConfiguration(
+                pointSize: 20, weight: .regular, scale: .default)
+            let image = UIImage(systemName: "heart.fill", withConfiguration: config)
+            sender.setImage(image, for: .normal)
+        }
     }
 }

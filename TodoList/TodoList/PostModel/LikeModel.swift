@@ -8,6 +8,6 @@
 import Foundation
 
 struct LikeModel: Codable {
-    var like_count: Int
-    var liked: Bool
+    var like_count: Int = .init()
+    var liked: Bool = .init()
 }
