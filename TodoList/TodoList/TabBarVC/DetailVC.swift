@@ -18,13 +18,14 @@ class DetailVC: UIViewController {
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var btnSuccess: UIButton!
     
+    var postDetail = DetailModel()
     var likeResult = LikeModel()
     
     var id: Int = 0
     var postTitle: String = ""
     var postWriter: String = ""
     var txt: String = ""
-    var likeCount: Int = 1
+    var likeCount: Int = 0
     var successResult: Bool? = false
     var createdDate: String = ""
     var liked: Bool? = true
@@ -35,6 +36,8 @@ class DetailVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getPostDetail()
+        
         lbPostTitle.text = "\(postTitle)"
         lbPostWriter.text = "\(postWriter)"
         txtViewContent.text = "\(txt)"
@@ -42,31 +45,43 @@ class DetailVC: UIViewController {
         lbLikes.text = "\(likeCount)"
         
         
-        btnSuccess.titleLabel?.textColor = UIColor(named: "MainColor")
         if (successResult == true) {
-//            btnSuccess.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-            
-            let todoState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
-            let successImage = UIImage(systemName: "checkmark.square.fill", withConfiguration: todoState)
-            btnSuccess.setImage(successImage, for: .normal)
+            successState()
         }
-        
         
         print(likeResult)
         
-        if (likeResult.liked == true) {
-            let likeState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
-            let likedImage = UIImage(systemName: "heart.fill", withConfiguration: likeState)
-            likeBtn.setImage(likedImage, for: .normal)
+        if (postDetail.liked == true) {
+            likedTrue()
         }
         
-        else if (likeResult.liked == false) {
-            let notLiked = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
-            let notLikedImage = UIImage(systemName: "heart", withConfiguration: notLiked)
-            likeBtn.setImage(notLikedImage, for: .normal)
+        else if (postDetail.liked == false) {
+            likedFalse()
         }
     }
     
+    
+    private func getPostDetail() {
+//        let url = "http://10.156.147.206:8080/post/main/like/\(id)" //학교
+        let url = "http://13.125.180.241:8080/post/main/like/\(id)"
+        var request = URLRequest(url: URL(string: url)!)
+        request.method = .get
+        request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
+
+        AF.request(request).response { (response) in switch response.result {
+            case .success:
+                debugPrint(response)
+                if let data = try? JSONDecoder().decode(DetailModel.self, from: response.data!){
+                    DispatchQueue.main.async {
+                        self.postDetail = data
+                    }
+                }
+            
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     private func getHeartsInfo() {
 //        let url = "http://10.156.147.206:8080/post/main/like/\(id)" //학교
@@ -74,7 +89,6 @@ class DetailVC: UIViewController {
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
         request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
-
 
         AF.request(request).response { (response) in switch response.result {
             case .success:
@@ -90,11 +104,9 @@ class DetailVC: UIViewController {
                         print(self.likeResult)
                     }
                 }
-
-
+            
             case .failure(let error):
                 print(error)
-                
             }
         }
     }
@@ -107,19 +119,38 @@ class DetailVC: UIViewController {
         print(likeResult)
         
         if (likeResult.liked == true) {
-            sender.titleLabel?.textColor = UIColor(named: "MainColor")
-            let config = UIImage.SymbolConfiguration(
-                pointSize: 20, weight: .regular, scale: .default)
-            let image = UIImage(systemName: "heart", withConfiguration: config)
-            sender.setImage(image, for: .normal)
+            likedFalse()
         }
         
         else if (likeResult.liked == false) {
-            sender.titleLabel?.textColor = UIColor(named: "MainColor")
-            let config = UIImage.SymbolConfiguration(
-                pointSize: 20, weight: .regular, scale: .default)
-            let image = UIImage(systemName: "heart.fill", withConfiguration: config)
-            sender.setImage(image, for: .normal)
+            likedTrue()
         }
+    }
+    
+    
+    
+    func successState() {
+        btnSuccess.titleLabel?.textColor = UIColor(named: "MainColor")
+        
+        let todoState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
+        let successImage = UIImage(systemName: "checkmark.square.fill", withConfiguration: todoState)
+        btnSuccess.setImage(successImage, for: .normal)
+    }
+    
+    func likedTrue() {
+        likeBtn.titleLabel?.textColor = UIColor(named: "MainColor")
+        let config = UIImage.SymbolConfiguration(
+            pointSize: 20, weight: .regular, scale: .default)
+        let image = UIImage(systemName: "heart.fill", withConfiguration: config)
+        likeBtn.setImage(image, for: .normal)
+
+    }
+    
+    func likedFalse() {
+        likeBtn.titleLabel?.textColor = UIColor(named: "MainColor")
+        let config = UIImage.SymbolConfiguration(
+            pointSize: 20, weight: .regular, scale: .default)
+        let image = UIImage(systemName: "heart", withConfiguration: config)
+        likeBtn.setImage(image, for: .normal)
     }
 }
