@@ -19,13 +19,12 @@ class DetailVC: UIViewController {
     @IBOutlet weak var btnSuccess: UIButton!
     
     var likeResult = LikeModel()
-    var refreshControl = UIRefreshControl()
     
     var id: Int = 0
     var postTitle: String = ""
     var postWriter: String = ""
     var txt: String = ""
-    var likeCount: Int = 0
+    var likeCount: Int = 1
     var successResult: Bool? = false
     var createdDate: String = ""
     var liked: Bool? = true
@@ -33,12 +32,9 @@ class DetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getHeartsInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getHeartsInfo()
-        
         lbPostTitle.text = "\(postTitle)"
         lbPostWriter.text = "\(postWriter)"
         txtViewContent.text = "\(txt)"
@@ -56,13 +52,15 @@ class DetailVC: UIViewController {
         }
         
         
-        if (liked == true) {
+        print(likeResult)
+        
+        if (likeResult.liked == true) {
             let likeState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
             let likedImage = UIImage(systemName: "heart.fill", withConfiguration: likeState)
             likeBtn.setImage(likedImage, for: .normal)
         }
         
-        else if (liked == false) {
+        else if (likeResult.liked == false) {
             let notLiked = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
             let notLikedImage = UIImage(systemName: "heart", withConfiguration: notLiked)
             likeBtn.setImage(notLikedImage, for: .normal)
@@ -84,33 +82,21 @@ class DetailVC: UIViewController {
                 if let data = try? JSONDecoder().decode(LikeModel.self, from: response.data!){
                     DispatchQueue.main.async {
                         self.likeResult = data
-
-                        self.refreshControl = UIRefreshControl()
-                        self.refreshControl.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
-                        self.refreshControl.endRefreshing() // 초기화 - refresh 종료
                         
+                        self.likeCount = self.likeResult.like_count
                         self.lbLikes.text = "\(self.likeResult.like_count)"
                         self.liked = self.likeResult.liked
+                        
+                        print(self.likeResult)
                     }
                 }
 
 
             case .failure(let error):
                 print(error)
-                self.refreshControl = UIRefreshControl()
-                self.refreshControl.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
-                self.refreshControl.endRefreshing() // 초기화 - refresh 종료
-            
-
+                
             }
         }
-    }
-    
-    
-    @objc func pullToRefresh(_ sender: Any) {
-        getHeartsInfo()
-        
-        refreshControl.endRefreshing() // 초기화 - refresh 종료
     }
     
     
@@ -118,7 +104,9 @@ class DetailVC: UIViewController {
     @IBAction func btnLikes(_ sender: UIButton) {
         getHeartsInfo()
         
-        if (liked == true) {
+        print(likeResult)
+        
+        if (likeResult.liked == true) {
             sender.titleLabel?.textColor = UIColor(named: "MainColor")
             let config = UIImage.SymbolConfiguration(
                 pointSize: 20, weight: .regular, scale: .default)
@@ -126,7 +114,7 @@ class DetailVC: UIViewController {
             sender.setImage(image, for: .normal)
         }
         
-        else if (liked == false) {
+        else if (likeResult.liked == false) {
             sender.titleLabel?.textColor = UIColor(named: "MainColor")
             let config = UIImage.SymbolConfiguration(
                 pointSize: 20, weight: .regular, scale: .default)
