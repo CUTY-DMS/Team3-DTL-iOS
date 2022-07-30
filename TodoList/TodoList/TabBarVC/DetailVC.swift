@@ -44,12 +44,9 @@ class DetailVC: UIViewController {
         lbWrittenDate.text = "\(createdDate)"
         lbLikes.text = "\(likeCount)"
         
-        
         if (successResult == true) {
             successState()
         }
-        
-        print(likeResult)
         
         if (postDetail.liked == true) {
             likedTrue()
