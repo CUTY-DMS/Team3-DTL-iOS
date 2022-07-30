@@ -33,6 +33,7 @@ class MyDetailVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getPostDetail()
         lbMyPostTitle.text = "\(myTitle)"
         lbMyPostDate.text = "\(date)"
         txtViewMyPostContent.text = "\(myContent)"
