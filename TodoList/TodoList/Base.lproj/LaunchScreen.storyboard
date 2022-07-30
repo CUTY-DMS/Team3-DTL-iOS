@@ -17,19 +17,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DTL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-Be-0lB">
-                                <rect key="frame" x="100" y="294" width="214" height="90"/>
+                                <rect key="frame" x="100" y="294" width="214" height="83.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="70"/>
                                 <color key="textColor" name="MainColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DMS To do List" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q73-YB-uWR">
-                                <rect key="frame" x="130" y="394" width="154" height="24"/>
+                                <rect key="frame" x="130" y="387.5" width="154" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Team3_Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pmd-Em-Oel">
-                                <rect key="frame" x="135" y="279" width="149" height="105"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Team3Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Pmd-Em-Oel">
+                                <rect key="frame" x="135" y="279" width="149" height="98.5"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -54,7 +54,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Team3_Logo.png" width="248" height="105"/>
+        <image name="Team3Logo" width="124" height="52.5"/>
         <namedColor name="MainColor">
             <color red="0.31764705882352939" green="0.6470588235294118" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
