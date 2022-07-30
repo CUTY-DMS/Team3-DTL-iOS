@@ -46,17 +46,17 @@ class MyDetailVC: UIViewController {
         }
         
         if (postDetail.liked == true) {
-            likedTrue()
+            likedFalse()
         }
         
         if (postDetail.liked == false) {
-            likedFalse()
+            likedTrue()
         }
     }
     
     private func getPostDetail() {
-//        let url = "http://10.156.147.206:8080/post/main/like/\(myID)" //학교
-        let url = "http://13.125.180.241:8080/post/main/like/\(myID)"
+//        let url = "http://10.156.147.206:8080/post/\(myID)" //학교
+        let url = "http://13.125.180.241:8080/post/\(myID)"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
         request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")

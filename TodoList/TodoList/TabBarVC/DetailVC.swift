@@ -48,19 +48,21 @@ class DetailVC: UIViewController {
             successState()
         }
         
+        print(postDetail.liked)
+        
         if (postDetail.liked == true) {
-            likedTrue()
+            likedFalse()
         }
         
         else if (postDetail.liked == false) {
-            likedFalse()
+            likedTrue()
         }
     }
     
     
     private func getPostDetail() {
-//        let url = "http://10.156.147.206:8080/post/main/like/\(id)" //학교
-        let url = "http://13.125.180.241:8080/post/main/like/\(id)"
+//        let url = "http://10.156.147.206:8080/post/\(id)" //학교
+        let url = "http://13.125.180.241:8080/post/\(id)"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
         request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
@@ -71,6 +73,8 @@ class DetailVC: UIViewController {
                 if let data = try? JSONDecoder().decode(DetailModel.self, from: response.data!){
                     DispatchQueue.main.async {
                         self.postDetail = data
+                        
+                        self.liked = self.postDetail.liked
                     }
                 }
             
@@ -96,7 +100,7 @@ class DetailVC: UIViewController {
                         
                         self.likeCount = self.likeResult.like_count
                         self.lbLikes.text = "\(self.likeResult.like_count)"
-                        self.liked = self.likeResult.liked
+                        self.liked = self.postDetail.liked
                         
                         print(self.likeResult)
                     }
