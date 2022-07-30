@@ -311,6 +311,17 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGp-AA-SUT">
+                                <rect key="frame" x="330" y="108" width="59" height="38"/>
+                                <color key="tintColor" name="MainColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnSignOut:" destination="SFj-mA-gN7" eventType="touchUpInside" id="Ivq-3z-Exo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4yn-Gh-sq5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -319,6 +330,7 @@
                             <constraint firstItem="Mh0-xE-zgd" firstAttribute="leading" secondItem="4yn-Gh-sq5" secondAttribute="leading" constant="52" id="4bp-KI-XA1"/>
                             <constraint firstItem="v2D-Nr-GSb" firstAttribute="top" secondItem="4yn-Gh-sq5" secondAttribute="top" id="8XA-Go-XkW"/>
                             <constraint firstItem="8oW-BH-XF4" firstAttribute="top" secondItem="v2D-Nr-GSb" secondAttribute="bottom" constant="10" id="A4L-gx-O1P"/>
+                            <constraint firstItem="aGp-AA-SUT" firstAttribute="top" secondItem="4yn-Gh-sq5" secondAttribute="top" constant="20" id="ARE-aL-Ona"/>
                             <constraint firstItem="4yn-Gh-sq5" firstAttribute="bottom" secondItem="YoE-J7-grq" secondAttribute="bottom" constant="10" id="Axv-5N-iw2"/>
                             <constraint firstItem="1DL-l1-Vbr" firstAttribute="top" secondItem="Mh0-xE-zgd" secondAttribute="bottom" constant="5" id="Dg8-Uy-GIZ"/>
                             <constraint firstItem="4yn-Gh-sq5" firstAttribute="trailing" secondItem="YoE-J7-grq" secondAttribute="trailing" id="HLu-h4-ZxL"/>
@@ -326,6 +338,7 @@
                             <constraint firstItem="v2D-Nr-GSb" firstAttribute="leading" secondItem="1DL-l1-Vbr" secondAttribute="trailing" constant="52" id="NgP-wa-wms"/>
                             <constraint firstItem="e1J-Z0-w0b" firstAttribute="leading" secondItem="4yn-Gh-sq5" secondAttribute="leading" constant="30" id="R6O-0c-w3G"/>
                             <constraint firstItem="YoE-J7-grq" firstAttribute="top" secondItem="e1J-Z0-w0b" secondAttribute="bottom" constant="10" id="YBJ-ua-Krl"/>
+                            <constraint firstItem="4yn-Gh-sq5" firstAttribute="trailing" secondItem="aGp-AA-SUT" secondAttribute="trailing" constant="25" id="ejN-Y1-QsF"/>
                             <constraint firstItem="4yn-Gh-sq5" firstAttribute="trailing" secondItem="e1J-Z0-w0b" secondAttribute="trailing" constant="30" id="iy1-6i-esD"/>
                             <constraint firstItem="1DL-l1-Vbr" firstAttribute="leading" secondItem="4yn-Gh-sq5" secondAttribute="leading" constant="50" id="keT-JK-j8Q"/>
                             <constraint firstItem="e1J-Z0-w0b" firstAttribute="top" secondItem="4yn-Gh-sq5" secondAttribute="top" constant="100" id="ue7-hu-zj3"/>
@@ -1007,6 +1020,7 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <namedColor name="MainColor">
