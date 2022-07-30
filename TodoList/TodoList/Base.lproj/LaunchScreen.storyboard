@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,27 +17,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DTL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-Be-0lB">
-                                <rect key="frame" x="100" y="294" width="214" height="83.5"/>
+                                <rect key="frame" x="100" y="294" width="214" height="90"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="70"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="MainColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DMS To do List" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q73-YB-uWR">
-                                <rect key="frame" x="130" y="387.5" width="154" height="24"/>
+                                <rect key="frame" x="130" y="394" width="154" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Team3_Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pmd-Em-Oel">
+                                <rect key="frame" x="135" y="279" width="149" height="105"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.31764705882352939" green="0.6470588235294118" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pmd-Em-Oel" secondAttribute="trailing" constant="130" id="5Rp-le-Nfr"/>
                             <constraint firstItem="Q73-YB-uWR" firstAttribute="top" secondItem="cRR-Be-0lB" secondAttribute="bottom" constant="10" id="5js-pH-5I9"/>
                             <constraint firstItem="cRR-Be-0lB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="Jmv-wD-GtC"/>
                             <constraint firstItem="Q73-YB-uWR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="130" id="K2r-MK-sXW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q73-YB-uWR" secondAttribute="trailing" constant="130" id="LAZ-B9-9hR"/>
                             <constraint firstItem="cRR-Be-0lB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="Sh6-2M-CA6"/>
+                            <constraint firstItem="Q73-YB-uWR" firstAttribute="top" secondItem="Pmd-Em-Oel" secondAttribute="bottom" constant="10" id="ZXf-6a-0q3"/>
                             <constraint firstAttribute="trailing" secondItem="cRR-Be-0lB" secondAttribute="trailing" constant="100" id="dmv-Zv-r80"/>
+                            <constraint firstItem="Pmd-Em-Oel" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="235" id="hiB-QB-sA6"/>
+                            <constraint firstItem="Pmd-Em-Oel" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="135" id="hyt-HE-nHs"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,4 +53,10 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Team3_Logo.png" width="248" height="105"/>
+        <namedColor name="MainColor">
+            <color red="0.31764705882352939" green="0.6470588235294118" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>
