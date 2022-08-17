@@ -25,7 +25,6 @@ class MyDetailVC: UIViewController {
     var date: String = ""
     var state: Bool = false
     var myLikesCount: Int = 0
-    var liked: Bool = false
     
     
     override func viewDidLoad() {
@@ -34,6 +33,7 @@ class MyDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getPostDetail()
+        
         lbMyPostTitle.text = "\(myTitle)"
         lbMyPostDate.text = "\(date)"
         txtViewMyPostContent.text = "\(myContent)"
@@ -44,19 +44,11 @@ class MyDetailVC: UIViewController {
         if (state == true) {
            successState()
         }
-        
-        if (postDetail.liked == true) {
-            likedFalse()
-        }
-        
-        if (postDetail.liked == false) {
-            likedTrue()
-        }
     }
     
     private func getPostDetail() {
 //        let url = "http://10.156.147.206:8080/post/\(myID)" //학교
-        let url = "http://13.125.180.241:8080/post/\(myID)"
+        let url = "http://13.209.66.51:8080/post/\(myID)"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
         request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
@@ -67,6 +59,13 @@ class MyDetailVC: UIViewController {
                 if let data = try? JSONDecoder().decode(DetailModel.self, from: response.data!){
                     DispatchQueue.main.async {
                         self.postDetail = data
+                        
+                        if (self.postDetail.liked == true) {
+                            self.likedTrue()
+                        }
+                        else if (self.postDetail.liked == false) {
+                            self.likedFalse()
+                        }
                     }
                 }
             
@@ -79,7 +78,7 @@ class MyDetailVC: UIViewController {
     
     private func getHeartsInfo() {
 //        let url = "http://10.156.147.206:8080/post/main/like/\(myID)" //학교
-        let url = "http://13.125.180.241:8080/post/main/like/\(myID)"
+        let url = "http://13.209.66.51:8080/post/main/like/\(myID)"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
         request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
@@ -94,9 +93,12 @@ class MyDetailVC: UIViewController {
                         
                         self.myLikesCount = self.likeResult.like_count
                         self.lbMyLikesCount.text = "\(self.likeResult.like_count)"
-                        self.liked = self.likeResult.liked
-                        
-                        print(self.likeResult)
+                        if (self.likeResult.liked == true) {
+                            self.likedFalse()
+                        }
+                        else if (self.likeResult.liked == false) {
+                            self.likedTrue()
+                        }
                     }
                 }
 
@@ -125,14 +127,6 @@ class MyDetailVC: UIViewController {
         getHeartsInfo()
         
         print(likeResult)
-        
-        if (likeResult.liked == true) {
-            likedFalse()
-        }
-        
-        else if (likeResult.liked == false) {
-            likedTrue()
-        }
     }
     
     
