@@ -94,10 +94,10 @@ class MyDetailVC: UIViewController {
                         self.myLikesCount = self.likeResult.like_count
                         self.lbMyLikesCount.text = "\(self.likeResult.like_count)"
                         if (self.likeResult.liked == true) {
-                            self.likedFalse()
+                            self.likedTrue()
                         }
                         else if (self.likeResult.liked == false) {
-                            self.likedTrue()
+                            self.likedFalse()
                         }
                     }
                 }
