@@ -17,18 +17,18 @@ class MyPageVC: UIViewController {
     
     let myRefreshControl = UIRefreshControl()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getMyPostList()
+        
         myPostsTableView.delegate = self
         myPostsTableView.dataSource = self
         
         myPostsTableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 20)
        
-        getMyPostList()
     }
     
     @IBAction func btnSignOut(_ sender: UIButton) {
@@ -46,7 +46,7 @@ class MyPageVC: UIViewController {
     
     private func getMyPostList() {
 //        let url = "http://10.156.147.206:8080/users/my" //학교
-        let url = "http://13.125.180.241:8080/users/my"
+        let url = "http://13.209.66.51:8080/users/my"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
         request.setValue("\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
@@ -62,6 +62,9 @@ class MyPageVC: UIViewController {
                         
                         self.myPosts = data
                         self.myPostsTableView.reloadData()
+                        
+                        self.lbMyName.text = "\(self.myPosts.user_name)"
+                        self.lbMyAge.text = "\(self.myPosts.user_age)세"
                         
                         self.myPostsTableView.refreshControl = UIRefreshControl()
                         self.myPostsTableView.refreshControl?.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
@@ -93,10 +96,6 @@ extension MyPageVC: UITableViewDelegate, UITableViewDataSource {
 
         myPostCell.lbMyPostTitle.text = "\(myPosts.todos[indexPath.row].title)"
         myPostCell.lbMyPostDate.text = "\(myPosts.todos[indexPath.row].created_at)"
-
-        lbMyName.text = "\(myPosts.user_name)"
-        lbMyAge.text = "\(myPosts.user_age)세"
-        
 
         if (myPosts.todos[indexPath.row].success == false) {
             myPostCell.todoStateBtn.setImage(UIImage(systemName: "square"), for: .normal)

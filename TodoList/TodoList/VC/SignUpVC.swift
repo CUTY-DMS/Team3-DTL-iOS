@@ -22,7 +22,7 @@ class SignUpVC: UIViewController {
 
     @IBAction func btnNewUser(_ sender: UIButton) {
 //        let url = "http://10.156.147.206:8080/users/signup" //학교
-        let url = "http://13.125.180.241:8080/users/signup"
+        let url = "http://13.209.66.51:8080/users/signup"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
