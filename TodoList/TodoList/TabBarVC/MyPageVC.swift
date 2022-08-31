@@ -46,7 +46,7 @@ class MyPageVC: UIViewController {
     
     private func getMyPostList() {
 //        let url = "http://10.156.147.206:8080/users/my" //학교
-        let url = "http://13.209.66.51:8080/users/my"
+        let url = "http://54.180.97.242:8080/users/my"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
         request.setValue("\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
@@ -123,6 +123,4 @@ extension MyPageVC: UITableViewDelegate, UITableViewDataSource {
         
         navigationController?.pushViewController(myDetail, animated: true)
     }
-    
-    
 }

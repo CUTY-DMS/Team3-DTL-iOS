@@ -48,7 +48,7 @@ class MyDetailVC: UIViewController {
     
     private func getPostDetail() {
 //        let url = "http://10.156.147.206:8080/post/\(myID)" //학교
-        let url = "http://13.209.66.51:8080/post/\(myID)"
+        let url = "http://54.180.97.242:8080/post/\(myID)"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
         request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
@@ -78,7 +78,7 @@ class MyDetailVC: UIViewController {
     
     private func getHeartsInfo() {
 //        let url = "http://10.156.147.206:8080/post/main/like/\(myID)" //학교
-        let url = "http://13.209.66.51:8080/post/main/like/\(myID)"
+        let url = "http://54.180.97.242:8080/post/main/like/\(myID)"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .get
         request.setValue( "\(KeyChain.read(key: "token") ?? "")", forHTTPHeaderField: "AccessToken")
@@ -139,17 +139,16 @@ class MyDetailVC: UIViewController {
     }
     
     func likedTrue() {
-        myLikeBtn.titleLabel?.textColor = UIColor(named: "MainColor")
+        myLikeBtn.titleLabel?.textColor = UIColor(named: "LikeColor")
         let likeState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
         let likedImage = UIImage(systemName: "heart.fill", withConfiguration: likeState)
         myLikeBtn.setImage(likedImage, for: .normal)
     }
     
     func likedFalse() {
-        myLikeBtn.titleLabel?.textColor = UIColor(named: "MainColor")
+        myLikeBtn.titleLabel?.textColor = UIColor(named: "LikeColor")
         let likeState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
         let likedImage = UIImage(systemName: "heart", withConfiguration: likeState)
         myLikeBtn.setImage(likedImage, for: .normal)
     }
-    
 }

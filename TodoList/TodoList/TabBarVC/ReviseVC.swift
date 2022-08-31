@@ -20,7 +20,6 @@ class ReviseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         txtFieldReviseTitle.text = "\(reviseTitle)"
         txtViewReviseContent.text = "\(reviseContent)"
         
@@ -55,7 +54,7 @@ class ReviseVC: UIViewController {
         }
         
         
-        let url = "http://13.209.66.51:8080/users/my/\(reviseID)"
+        let url = "http://54.180.97.242:8080/users/my/\(reviseID)"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .patch
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -77,13 +76,12 @@ class ReviseVC: UIViewController {
     }
     
     
-    
     @IBAction func btnRevise(_ sender: UIButton) {
         let txtFieldReviseTitle = self.txtFieldReviseTitle.text
         let txtViewReviseContent = self.txtViewReviseContent.text
         
         //전송할 값
-        let url = "http://13.209.66.51:8080/users/my/\(reviseID)"
+        let url = "http://54.180.97.242:8080/users/my/\(reviseID)"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .put
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -129,7 +127,7 @@ class ReviseVC: UIViewController {
     
     
     @IBAction func btnTodoDelete(_ sender: UIButton) {
-        let url = "http://13.209.66.51:8080/users/my/\(reviseID)"
+        let url = "http://54.180.97.242:8080/users/my/\(reviseID)"
         var request = URLRequest(url: URL(string: url)!)
         request.method = .delete
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -160,6 +158,4 @@ class ReviseVC: UIViewController {
             }
         }
     }
-    
-    
 }

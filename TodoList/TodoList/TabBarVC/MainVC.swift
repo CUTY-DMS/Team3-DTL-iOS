@@ -39,7 +39,7 @@ class MainVC: UIViewController {
     
     private func getPostList() {
 //        AF.request("http://10.156.147.206:8080/post/main", method: .get) //학교
-        AF.request("http://13.209.66.51:8080/post/main", method: .get)
+        AF.request("http://54.180.97.242:8080/post/main", method: .get)
             .validate(statusCode: 200..<500)
             .responseData {
                 response in switch response.result {
@@ -65,7 +65,6 @@ class MainVC: UIViewController {
                     self.refreshControl.endRefreshing() // 초기화 - refresh 종료
                 }
             }
-    
     }
 }
 
@@ -106,5 +105,4 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         
         navigationController?.pushViewController(view, animated: true)
     }
-    
 }
