@@ -11,13 +11,29 @@ import Alamofire
 class NewPostVC: UIViewController {
     @IBOutlet weak var txtFieldNewTitle: UITextField!
     @IBOutlet weak var txtViewNewContent: UITextView!
+    @IBOutlet weak var lbTitleCount: UILabel!
+    @IBOutlet weak var lbContentCount: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        txtFieldNewTitle.layer.cornerRadius = 5
+        txtFieldNewTitle.layer.borderWidth = 1.0
+        txtFieldNewTitle.layer.borderColor = UIColor(named: "ThemeColor")?.cgColor
+        txtViewNewContent.layer.cornerRadius = 10
+        txtViewNewContent.layer.borderWidth = 1.0
+        txtViewNewContent.layer.borderColor = UIColor(named: "ThemeColor")?.cgColor
+        txtViewNewContent.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         
+        
+        print("thisiswhatiprint")
+        print("\(txtFieldNewTitle.text!.count)")
+        print("\(txtViewNewContent.text!.count)")
+        lbTitleCount.text = " \(txtFieldNewTitle.text!.utf8.count)/20"
+        lbContentCount.text = "\(txtViewNewContent.text!.utf8.count)/100"
     }
     
     
