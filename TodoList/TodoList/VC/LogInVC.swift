@@ -13,7 +13,7 @@ class LogInVC: UIViewController {
     @IBOutlet weak var txtFieldUserID: UITextField!
     @IBOutlet weak var txtFieldPW: UITextField!
     @IBAction func btnLogIn(_ sender: UIButton) {
-        signin()
+        signIn()
     }
     
     @IBOutlet weak var passwordEyeButton: UIButton!
@@ -46,11 +46,11 @@ class LogInVC: UIViewController {
     
     
     @IBAction func btnAutoSignIn(_ sender: UIButton) {
-        if(autoState == true) {
+        if(autoState == false) {
             autoSignIn()
         }
         
-        else {
+        else if (autoState == true) {
             manualSignIn()
         }
     }
@@ -60,22 +60,32 @@ class LogInVC: UIViewController {
         autoSignInBtn.titleLabel?.textColor = UIColor(named: "ThemeColor")
         let state = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
         let successImage = UIImage(systemName: "checkmark.square.fill", withConfiguration: state)
-        
         autoSignInBtn.setImage(successImage, for: .normal)
         
         autoState = true
+        
+        let userID = self.txtFieldUserID.text!
+        let userPW = self.txtFieldPW.text!
+        
+        let dataSave = UserDefaults.standard
+        dataSave.setValue(userID, forKey: "saveID")
+        dataSave.setValue(userPW, forKey: "savePW")
+        UserDefaults.standard.synchronize()
     }
     
     func manualSignIn() {
         autoSignInBtn.titleLabel?.textColor = UIColor(named: "ThemeColor")
         let state = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
         let successImage = UIImage(systemName: "square", withConfiguration: state)
-        
         autoSignInBtn.setImage(successImage, for: .normal)
+        
+        autoState = false
     }
     
     
-    private func signin() {
+    
+    
+    private func signIn() {
 //        let url = "http://10.156.147.206:8080/users/signin" //학교
         let url = "http://54.180.97.242:8080/users/signin"
         var request = URLRequest(url: URL(string: url)!)
