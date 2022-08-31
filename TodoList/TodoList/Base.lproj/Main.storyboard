@@ -143,7 +143,7 @@
                                     <constraint firstAttribute="width" constant="27" id="QNF-qo-sqv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="tintColor" red="0.31764706970000001" green="0.65098041299999998" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.31764706970000001" green="0.65098041299999998" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -290,7 +290,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 할 일" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1J-Z0-w0b">
                                 <rect key="frame" x="30" y="188" width="354" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" name="MainColor"/>
+                                <color key="textColor" name="ThemeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oW-BH-XF4">
@@ -390,7 +390,7 @@
                                     <constraint firstAttribute="height" constant="70" id="FQa-Ra-OGZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="tintColor" red="0.31764706970000001" green="0.65098041299999998" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.31764706970000001" green="0.65098041299999998" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -511,7 +511,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새 할 일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMw-dG-vtf">
                                 <rect key="frame" x="40" y="98" width="91" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" name="ThemeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqv-F1-siE">
@@ -519,11 +519,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hpm-Ge-zAR"/>
                                 </constraints>
-                                <color key="tintColor" red="0.31764706970000001" green="0.65098041299999998" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="ThemeColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="새 할 일 등록">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="baseBackgroundColor" red="0.31764706970000001" green="0.65098041299999998" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" name="ThemeColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnSendPost:" destination="JkM-Aw-ONl" eventType="touchUpInside" id="iaa-9A-155"/>
@@ -595,7 +595,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waB-eN-AxU">
-                                <rect key="frame" x="60" y="379" width="294" height="40"/>
+                                <rect key="frame" x="60" y="399" width="294" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1XY-il-Lvv"/>
@@ -604,17 +604,17 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="로그인">
                                     <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.31764705882352939" green="0.65490196078431373" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="ThemeColor"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="baseBackgroundColor" red="0.31764705882352939" green="0.65490196078431373" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" name="ThemeColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnLogIn:" destination="Qam-hq-foY" eventType="touchUpInside" id="s40-FK-Upb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TB0-p2-EJa">
-                                <rect key="frame" x="50" y="339" width="314" height="40"/>
+                                <rect key="frame" x="50" y="359" width="314" height="40"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="계정이 없으세요? 여기를 클릭하여 계정을 만드세요.">
@@ -638,13 +638,26 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btnPWEye" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vG-jb-VtM">
                                 <rect key="frame" x="309.5" y="278" width="49.5" height="29.5"/>
-                                <color key="tintColor" name="MainColor"/>
+                                <color key="tintColor" name="ThemeColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="13"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="passwordEyeButtonDidTap:" destination="Qam-hq-foY" eventType="touchUpInside" id="zBg-KY-Slg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q12-Nn-0mE">
+                                <rect key="frame" x="40" y="314" width="125.5" height="32"/>
+                                <color key="tintColor" name="ThemeColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title="로그인 유지" imagePadding="10">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="15"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                    <color key="baseForegroundColor" name="ThemeColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnAutoSignIn:" destination="Qam-hq-foY" eventType="touchUpInside" id="iBf-sn-tgS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -657,6 +670,7 @@
                             <constraint firstItem="VkV-EC-d5r" firstAttribute="leading" secondItem="eJM-zi-jp8" secondAttribute="leading" constant="55" id="E1C-Ez-aAG"/>
                             <constraint firstItem="6GQ-MA-yLh" firstAttribute="top" secondItem="eJM-zi-jp8" secondAttribute="top" constant="30" id="IBY-7e-fJv"/>
                             <constraint firstItem="eJM-zi-jp8" firstAttribute="trailing" secondItem="Tpd-PB-kWX" secondAttribute="trailing" constant="50" id="IkW-wi-UoD"/>
+                            <constraint firstItem="Q12-Nn-0mE" firstAttribute="leading" secondItem="eJM-zi-jp8" secondAttribute="leading" constant="40" id="JJv-7G-e8E"/>
                             <constraint firstItem="Tpd-PB-kWX" firstAttribute="leading" secondItem="eJM-zi-jp8" secondAttribute="leading" constant="50" id="KZa-32-fq8"/>
                             <constraint firstItem="eJM-zi-jp8" firstAttribute="trailing" secondItem="TB0-p2-EJa" secondAttribute="trailing" constant="50" id="LKu-Ul-Xg1"/>
                             <constraint firstItem="RBV-Tu-V2c" firstAttribute="leading" secondItem="eJM-zi-jp8" secondAttribute="leading" constant="55" id="MxD-jI-7lV"/>
@@ -669,16 +683,18 @@
                             <constraint firstItem="TB0-p2-EJa" firstAttribute="leading" secondItem="eJM-zi-jp8" secondAttribute="leading" constant="50" id="YhO-op-yff"/>
                             <constraint firstItem="dIh-Kc-igy" firstAttribute="leading" secondItem="eJM-zi-jp8" secondAttribute="leading" constant="50" id="b0H-cY-hNa"/>
                             <constraint firstItem="6GQ-MA-yLh" firstAttribute="leading" secondItem="eJM-zi-jp8" secondAttribute="leading" id="eDT-16-dQd"/>
+                            <constraint firstItem="Q12-Nn-0mE" firstAttribute="top" secondItem="dIh-Kc-igy" secondAttribute="bottom" constant="5" id="liP-pw-eYH"/>
                             <constraint firstItem="eJM-zi-jp8" firstAttribute="trailing" secondItem="dIh-Kc-igy" secondAttribute="trailing" constant="50" id="mPI-aR-FE8"/>
                             <constraint firstItem="Tpd-PB-kWX" firstAttribute="top" secondItem="RBV-Tu-V2c" secondAttribute="bottom" id="nHT-C8-9R3"/>
-                            <constraint firstItem="waB-eN-AxU" firstAttribute="top" secondItem="dIh-Kc-igy" secondAttribute="bottom" constant="70" id="pgx-DF-hwC"/>
+                            <constraint firstItem="waB-eN-AxU" firstAttribute="top" secondItem="dIh-Kc-igy" secondAttribute="bottom" constant="90" id="pgx-DF-hwC"/>
                             <constraint firstItem="waB-eN-AxU" firstAttribute="top" secondItem="TB0-p2-EJa" secondAttribute="bottom" id="tcO-jL-mQU"/>
                             <constraint firstItem="Tpd-PB-kWX" firstAttribute="top" secondItem="WEr-fU-dVK" secondAttribute="bottom" constant="70" id="vS5-ZM-xTk"/>
                             <constraint firstItem="7vG-jb-VtM" firstAttribute="top" secondItem="Tpd-PB-kWX" secondAttribute="bottom" constant="43" id="xYv-7U-DlP"/>
-                            <constraint firstItem="TB0-p2-EJa" firstAttribute="top" secondItem="dIh-Kc-igy" secondAttribute="bottom" constant="30" id="xvX-Fq-mkl"/>
+                            <constraint firstItem="TB0-p2-EJa" firstAttribute="top" secondItem="dIh-Kc-igy" secondAttribute="bottom" constant="50" id="xvX-Fq-mkl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="autoSignInBtn" destination="Q12-Nn-0mE" id="v8n-SK-Lav"/>
                         <outlet property="passwordEyeButton" destination="7vG-jb-VtM" id="taW-Zw-AJp"/>
                         <outlet property="txtFieldPW" destination="dIh-Kc-igy" id="vyB-yQ-ftm"/>
                         <outlet property="txtFieldUserID" destination="Tpd-PB-kWX" id="ODG-ba-SF9"/>
@@ -752,14 +768,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="oej-8r-Eqz"/>
                                 </constraints>
-                                <color key="tintColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="ThemeColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="회원 가입">
                                     <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="ThemeColor"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="baseBackgroundColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" name="ThemeColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnNewUser:" destination="P1i-4z-cbd" eventType="touchUpInside" id="7cS-U5-saX"/>
@@ -827,8 +843,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.31764705882352939" green="0.65490196078431373" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="selectedImageTintColor" red="0.31764705879999999" green="0.65490196079999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" name="ThemeColor"/>
+                        <color key="selectedImageTintColor" name="ThemeColor"/>
                         <tabBarAppearance key="standardAppearance">
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tabBarAppearance>
@@ -879,7 +895,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <textAttributes key="titleTextAttributes">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="textColor" name="MainColor"/>
+                                <color key="textColor" name="ThemeColor"/>
                             </textAttributes>
                             <textAttributes key="largeTitleTextAttributes">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
@@ -961,11 +977,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="DIp-xL-c0T"/>
                                 </constraints>
-                                <color key="tintColor" name="MainColor"/>
+                                <color key="tintColor" name="ThemeColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="수정하기">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="baseBackgroundColor" name="MainColor"/>
+                                    <color key="baseBackgroundColor" name="ThemeColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnRevise:" destination="jpV-HG-9Aj" eventType="touchUpInside" id="Fvt-B0-IxX"/>
@@ -1026,6 +1042,9 @@
         <namedColor name="MainColor">
             <color red="0.31764705882352939" green="0.6470588235294118" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="ThemeColor">
+            <color red="0.05446609643271879" green="0.11229795466579702" blue="0.16571969696969702" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1034,6 +1053,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
