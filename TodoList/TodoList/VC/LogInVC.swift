@@ -17,13 +17,22 @@ class LogInVC: UIViewController {
     }
     
     @IBOutlet weak var passwordEyeButton: UIButton!
+    @IBOutlet weak var autoSignInBtn: UIButton!
+    
+    var autoState: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtFieldPW.isSecureTextEntry = true
     }
     
-    @IBAction func passwordEyeButtonDidTap(_ sender: Any) {
+    override func viewWillAppear(_ animated: Bool) {
+        txtFieldPW.isSecureTextEntry = true
+        manualSignIn()
+    }
+    
+    
+    @IBAction func passwordEyeButtonDidTap(_ sender: UIButton) {
         // 보안 설정 반전
         txtFieldPW.isSecureTextEntry.toggle()
         // 버튼 선택 상태 반전
@@ -36,9 +45,39 @@ class LogInVC: UIViewController {
     }
     
     
+    @IBAction func btnAutoSignIn(_ sender: UIButton) {
+        if(autoState == true) {
+            autoSignIn()
+        }
+        
+        else {
+            manualSignIn()
+        }
+    }
+    
+    
+    func autoSignIn() {
+        autoSignInBtn.titleLabel?.textColor = UIColor(named: "ThemeColor")
+        let state = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
+        let successImage = UIImage(systemName: "checkmark.square.fill", withConfiguration: state)
+        
+        autoSignInBtn.setImage(successImage, for: .normal)
+        
+        autoState = true
+    }
+    
+    func manualSignIn() {
+        autoSignInBtn.titleLabel?.textColor = UIColor(named: "ThemeColor")
+        let state = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
+        let successImage = UIImage(systemName: "square", withConfiguration: state)
+        
+        autoSignInBtn.setImage(successImage, for: .normal)
+    }
+    
+    
     private func signin() {
 //        let url = "http://10.156.147.206:8080/users/signin" //학교
-        let url = "http://13.209.66.51:8080/users/signin"
+        let url = "http://54.180.97.242:8080/users/signin"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
