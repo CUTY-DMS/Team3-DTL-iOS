@@ -12,6 +12,7 @@ class TodoListCell: UITableViewCell {
     @IBOutlet weak var lbUser: UILabel!
     @IBOutlet weak var lbDate: UILabel!
     @IBOutlet weak var checkBoxBtn: UIButton!
+    @IBOutlet weak var lbCount: UILabel!
     
     
     override func awakeFromNib() {
