@@ -81,11 +81,13 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         cell.lbDate.text = "\(result[indexPath.row].created_at)"
         
         if (result[indexPath.row].todo_success == false) {
-            cell.checkBoxBtn.setImage(UIImage(systemName: "square"), for: .normal)
+            cell.checkBoxBtn.setImage(UIImage(systemName: "multiply.square.fill"), for: .normal)
+            cell.checkBoxBtn.tintColor = UIColor(named: "LikeColor")
         }
         
         else if (result[indexPath.row].todo_success == true) {
             cell.checkBoxBtn.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            cell.checkBoxBtn.tintColor = UIColor(named: "SuccessColor")
         }
         
         

@@ -47,6 +47,9 @@ class DetailVC: UIViewController {
             successState()
         }
         
+        else if(successResult == false) {
+            failState()
+        }
     }
     
     
@@ -123,10 +126,18 @@ class DetailVC: UIViewController {
     
     
     func successState() {
-        btnSuccess.titleLabel?.textColor = UIColor(named: "MainColor")
+        btnSuccess.tintColor = UIColor(named: "SuccessColor")
         
         let todoState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
         let successImage = UIImage(systemName: "checkmark.square.fill", withConfiguration: todoState)
+        btnSuccess.setImage(successImage, for: .normal)
+    }
+    
+    func failState() {
+        btnSuccess.tintColor = UIColor(named: "LikeColor")
+        
+        let todoState = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
+        let successImage = UIImage(systemName: "multiply.square.fill", withConfiguration: todoState)
         btnSuccess.setImage(successImage, for: .normal)
     }
     
